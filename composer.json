@@ -1,0 +1,16 @@
+{
+  "name": "marcelocorrea/cnab",
+  "description": "Gerar remessa e processar retorno nos layouts cnab240 e 400",
+  "authors": [
+    {
+      "name": "Marcelo Correa",
+      "email": "marcelocorrea229@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Cnab\\": "src/"
+    }
+  }
+}
