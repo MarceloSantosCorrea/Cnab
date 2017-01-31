@@ -1,4 +1,5 @@
 <?php
+
 namespace Cnab;
 
 use Exception;
@@ -59,7 +60,7 @@ abstract class RetornoAbstract
     }
 
     /*
-    * m?todo changeLayout()
+    * método changeLayout()
     * Recebe os parametros
     * @$newLayout = altera o layout do lote , servira para enviar lotes de layouts diferentes no mesmo arquvio //(ALERTA) nao testado
     */
@@ -106,5 +107,3 @@ abstract class RetornoAbstract
 
     }
 }
-
-?>

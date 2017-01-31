@@ -24,6 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 namespace Cnab\resources\B104\remessa\cnab240_SIGCB;
+
 use Cnab\resources\generico\remessa\cnab240\Generico3;
 use Exception;
 
@@ -34,117 +35,136 @@ class Registro3Q extends Generico3
             'tamanho'  => 3,
             'default'  => '104',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'codigo_lote'      => [           // 2.3Q
             'tamanho'  => 4,
             'default'  => 1,
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'tipo_registro'    => [         // 3.3Q
             'tamanho'  => 1,
             'default'  => '3',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'numero_registro'  => [       // 4.3Q
             'tamanho'  => 5,
             'default'  => '0',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'seguimento'       => [            // 5.3Q
             'tamanho'  => 1,
             'default'  => 'Q',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'filler1'          => [               // 6.3Q
             'tamanho'  => 1,
             'default'  => ' ',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'codigo_movimento' => [      // 7.3Q
             'tamanho'  => 2,
             'default'  => '01', // entrada de titulo
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
 
-        // - ------------------ até aqui é igual para todo registro tipo 3
+        // - ------------------ até aqui é igual para todos registro tipo 3
 
         'tipo_inscricao'                    => [               // 8.3Q
             'tamanho'  => 1,
             'default'  => '',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'numero_inscricao'                  => [            // 9.3Q
             'tamanho'  => 15,
             'default'  => '',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'nome_pagador'                      => [       //10.3Q
             'tamanho'  => 40,
             'default'  => '',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'endereco_pagador'                  => [               // 11.3Q
             'tamanho'  => 40,
             'default'  => '',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'bairro_pagador'                    => [               //12.3Q
             'tamanho'  => 15,
             'default'  => '',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'cep_pagador'                       => [      //13.3Q   
             'tamanho'  => 5,
             'default'  => '',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'cep_sufixo'                        => [  //14.3Q
             'tamanho'  => 3,
             'default'  => ' ',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'cidade_pagador'                    => [   //15.3Q
             'tamanho'  => 15,
             'default'  => '',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'uf_pagador'                        => [      //16.3Q
             'tamanho'  => 2,
             'default'  => '',  // combrança com registro
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'tipo_incricao_avalista'            => [        //17.3Q
             'tamanho'  => 1,
             'default'  => '0',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'numero_incricao_avalista'          => [          // 18.3
             'tamanho'  => 15,
             'default'  => '0',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
         'nome_avalista'                     => [        //18.3Q
             'tamanho'  => 40,
             'default'  => ' ',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'codigo_banco_correspondente'       => [        //18.3Q
             'tamanho'  => 3,
             'default'  => ' ',
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'nosso_numero_banco_correspondente' => [            //19.3Q   Campo de preenchimento obrigatório; preencher com Seu Número de controle do título
             'tamanho'  => 20,
             'default'  => ' ', // este espaço foi colocado para passa a validação para os seters do generico
             'tipo'     => 'alfa',
-            'required' => true],
+            'required' => true,
+        ],
         'filler4'                           => [               //19.3Q
             'tamanho'  => 8,
             'default'  => ' ',
             'tipo'     => 'alfa',
-            'required' => true],
-
+            'required' => true,
+        ],
     ];
 }
-
-?>

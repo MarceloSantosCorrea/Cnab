@@ -66,7 +66,7 @@ abstract class RemessaAbstract
 
     /*
     * método addLote()
-    * Recebe os parametros abaixo e insere num array para uso fururo
+    * Recebe os parametros abaixo e insere num array para uso futuro
     * @array $data = recebe um array contendo os dados do lote a sera aberto e retorna para qualqer layout 240 o lote criado ou $this se outro
     */
     public function addLote(array $data)
@@ -80,8 +80,9 @@ abstract class RemessaAbstract
             $lote = $this;
         }
 
-        return $lote;
         self::$loteCounter++;
+
+        return $lote;
     }
 
     /*

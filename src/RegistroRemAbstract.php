@@ -33,7 +33,7 @@ abstract class RegistroRemAbstract
     protected $meta;
     protected $children;
 
-    /* m?todo __construct()
+    /* método __construct()
     * instancia registro qualquer
     * @$data = array de dados para o registro
     */
@@ -50,14 +50,14 @@ abstract class RegistroRemAbstract
 
 
     /*
-    * m?todo __set()
-    * executado sempre que uma propriedade for atribu?da.
+    * método __set()
+    * executado sempre que uma propriedade for atribuída.
     */
     public function __set($prop, $value)
     {
-        // verifica se existe m?todo set_<propriedade>
+        // verifica se existe método set_<propriedade>
         if (method_exists($this, 'set_' . $prop)) {
-            // executa o m?todo set_<propriedade>
+            // executa o método set_<propriedade>
             call_user_func([$this, 'set_' . $prop], $value);
         } else {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
@@ -71,14 +71,14 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo __get()
+    * método __get()
     * executado sempre que uma propriedade for requerida
     */
     public function __get($prop)
     {
-        // verifica se existe m?todo get_<propriedade>
+        // verifica se existe método get_<propriedade>
         if (method_exists($this, 'get_' . $prop)) {
-            // executa o m?todo get_<propriedade>
+            // executa o método get_<propriedade>
             return call_user_func([$this, 'get_' . $prop]);
         } else {
             return $this->___get($prop);
@@ -86,7 +86,7 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo ___get()
+    * método ___get()
     * metodo auxiliar para ser chamado para dentro de metodo get personalizado
     */
     public function ___get($prop)
@@ -137,7 +137,7 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo getUnformated()
+    * método getUnformated()
     * busca o valor de dentro do campo dentro do objeto de forma simples sem formata??o de valor por exemplo
     */
     public function getUnformated($prop)
@@ -148,7 +148,7 @@ abstract class RegistroRemAbstract
         }
     }
 
-    /* m?todo prepareText()
+    /* método prepareText()
     * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
     * recebe um texto e prepara para inserir no arquivo de texto
     */
@@ -162,7 +162,7 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo removeAccents()
+    * método removeAccents()
     * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
     * recebe um texto e prepara para inserir no arquivo de texto
     */
@@ -190,8 +190,8 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo removeAccents()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
+    * método removeAccents()
+    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
     * recebe um texto e prepara para inserir no arquivo de texto
     */
     private function isUtf8($string)
@@ -211,7 +211,7 @@ abstract class RegistroRemAbstract
     }
 
     /*
-    * m?todo getText()
+    * método getText()
     * metodo magico que trabalha recursivamente nos filhos e netos desse objeto 
     * prepara as linhas para serem exportadas para txt
     */
@@ -230,5 +230,3 @@ abstract class RegistroRemAbstract
         }
     }
 }
-
-?>
