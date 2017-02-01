@@ -80,9 +80,8 @@ abstract class RemessaAbstract
             $lote = $this;
         }
 
-        self::$loteCounter++;
-
         return $lote;
+        self::$loteCounter++;
     }
 
     /*

@@ -5,15 +5,17 @@ require __DIR__ . '/vendor/autoload.php';
 use Cnab\Remessa;
 
 $arquivo = new Remessa(104, 'cnab240_SIGCB', [
-    'nome_empresa'              => "Empresa ABC", // seu nome de empresa
-    'tipo_inscricao'            => 2, // 1 para cpf, 2 cnpj
-    'numero_inscricao'          => '81771401087', // seu cpf ou cnpj completo
-    'agencia'                   => '1234', // agencia sem o digito verificador
-    'agencia_dv'                => 3, // somente o digito verificador da agencia
-    'conta'                     => '12345', // número da conta
-    'conta_dac'                 => 1, // digito da conta
-    'codigo_beneficiario'       => '123456', // codigo fornecido pelo banco
-    'numero_sequencial_arquivo' => 1, // sequencial do arquivo um numero novo para cada arquivo gerado
+    'nome_empresa'              => "Empresa ABC",
+    'tipo_inscricao'            => '2',
+    'numero_inscricao'          => '91.378.372/0001-01',
+    'agencia'                   => '0501',
+    'agencia_dv'                => '0',
+    'conta'                     => '3264',
+    'conta_dv'                  => '6',
+    'codigo_beneficiario'       => '721933',
+    'codigo_beneficiario_dv'    => '4',
+    'numero_sequencial_arquivo' => 1,
+    'situacao_arquivo'          => 'P',
 ]);
 $lote    = $arquivo->addLote(['tipo_servico' => 1]); // tipo_servico  = 1 para cobrança registrada, 2 para sem registro
 
@@ -88,5 +90,3 @@ $lote->inserirDetalhe([
 $fp = fopen('remessa.rem', 'w');
 fwrite($fp, $arquivo->getText());
 fclose($fp);
-
-echo $arquivo->getText();

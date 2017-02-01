@@ -63,7 +63,7 @@ class Registro3P extends Generico3
         'agencia_dv'           => [            // 9.3P
             'tamanho'  => 1,
             'default'  => '',
-            'tipo'     => 'alfa',
+            'tipo'     => 'int',
             'required' => true,
         ],
         'codigo_convenio'      => [       //10.3P
