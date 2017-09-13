@@ -25,12 +25,12 @@ abstract class RetornoAbstract
 
     public function __construct($conteudo)
     {
-
         $conteudo = str_replace("\r\n", "\n", $conteudo);
-        $lines    = explode("\n", $conteudo);
-        if (count($lines) < 2) {
+
+        $lines = explode("\n", $conteudo);
+        if (count($lines) < 2)
             throw new Exception("Arquivo sem Conteudo");
-        }
+
         $length        = strlen($lines[0]);
         $layout_versao = null;
 
@@ -39,22 +39,28 @@ abstract class RetornoAbstract
             $layout_versao = substr($lines[0], 163, 3);
             $codigo_banco  = substr($lines[0], 0, 3);
             $codigo_tipo   = substr($lines[0], 142, 1);
+
         } elseif ($length == 400 || $length == 401) {
             $bytes         = 400;
             $layout_versao = '400';
             $codigo_banco  = substr($lines[0], 76, 3);
             $codigo_tipo   = substr($lines[0], 1, 1);
+
         } else {
             throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
         }
+
         if ($codigo_tipo == '1') {
             throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
         }
-        self::$banco      = "B" . $codigo_banco;
-        self::$layout     = "L" . $layout_versao;
+
+        self::$banco  = "B" . $codigo_banco;
+        self::$layout = "L" . $layout_versao;
+        self::$lines  = $lines;
+
         $class            = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
-        self::$lines      = $lines;
         $this->children[] = new $class($lines[0]);
+
         $class            = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
         $this->children[] = new $class($lines[count($lines) - 2]);
     }
