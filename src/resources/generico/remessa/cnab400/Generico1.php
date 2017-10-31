@@ -1,5 +1,6 @@
 <?php
 namespace Cnab\resources\generico\remessa\cnab400;
+
 use Cnab\RegistroRemAbstract;
 use Cnab\RemessaAbstract;
 use Cnab\Especie;
@@ -57,7 +58,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_agencia_cobradora($value)
     {
-        $this->data['agencia_cobradora'] = RemessaAbstract::$entryData['agencia'];
+        $this->data['agencia_cobradora'] = ($value == '0') ? $value : RemessaAbstract::$entryData['agencia'];
     }
 
     protected function set_agencia_cobradora_dv($value)
