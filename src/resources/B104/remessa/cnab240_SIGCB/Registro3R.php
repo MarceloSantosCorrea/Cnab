@@ -6,44 +6,46 @@ use Cnab\resources\generico\remessa\cnab240\Generico3;
 
 class Registro3R extends Generico3
 {
+    protected $registroClass = __CLASS__;
+
     protected $meta = [
-        'codigo_banco'     => [          // 1.3R
+        'codigo_banco'       => [          // 1.3R
             'tamanho'  => 3,
             'default'  => '104',
             'tipo'     => 'int',
             'required' => true,
         ],
-        'codigo_lote'      => [           // 2.3R
+        'codigo_lote'        => [           // 2.3R
             'tamanho'  => 4,
             'default'  => 1,
             'tipo'     => 'int',
             'required' => true,
         ],
-        'tipo_registro'    => [         // 3.3R
+        'tipo_registro'      => [         // 3.3R
             'tamanho'  => 1,
             'default'  => '3',
             'tipo'     => 'int',
             'required' => true,
         ],
-        'numero_registro'  => [       // 4.3R
+        'numero_registro'    => [       // 4.3R
             'tamanho'  => 5,
             'default'  => '0',
             'tipo'     => 'int',
             'required' => true,
         ],
-        'seguimento'       => [            // 5.3R
+        'seguimento'         => [            // 5.3R
             'tamanho'  => 1,
             'default'  => 'R',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'filler1'          => [               // 6.3R
+        'filler1'            => [               // 6.3R
             'tamanho'  => 1,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'codigo_movimento' => [      // 7.3R
+        'codigo_movimento'   => [      // 7.3R
             'tamanho'  => 2,
             'default'  => '01', // entrada de titulo
             'tipo'     => 'int',

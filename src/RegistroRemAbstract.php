@@ -10,14 +10,16 @@ abstract class RegistroRemAbstract
     protected $meta;
     protected $children;
 
+    protected $registroClass;
+
     /* método __construct()
     * instancia registro qualquer
     * @$data = array de dados para o registro
     */
     public function __construct($data = NULL)
     {
-        if ($data) // se o ID for informado
-        {
+        if ($data) {
+            $this->data = $data;
             // carrega o objeto correspondente
             foreach ($this->meta as $key => $value) {
                 $this->$key = (isset($data[$key])) ? $data[$key] : $this->meta[$key]['default'];

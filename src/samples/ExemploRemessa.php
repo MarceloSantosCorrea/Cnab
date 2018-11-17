@@ -1,37 +1,12 @@
 <?php
-/*
-* Cnab - Geração de arquivos de remessa e retorno em PHP
-*
-* LICENSE: The MIT License (MIT)
-*
-* Copyright (C) 2013 Ciatec.net
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy of this
-* software and associated documentation files (the "Software"), to deal in the Software
-* without restriction, including without limitation the rights to use, copy, modify,
-* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
-* permit persons to whom the Software is furnished to do so, subject to the following
-* conditions:
-*
-* The above copyright notice and this permission notice shall be included in all copies
-* or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
 
 namespace Cnab\samples;
 
-
-require_once("../../autoloader.php");
+require_once __DIR__ . "/../../vendor/autoload.php";
 
 use Cnab\Remessa;
 
-$arquivo = new Remessa(756, 'cnab400', [
+$arquivo = new Remessa(104, 'cnab240_SIGCB', [
     'nome_empresa'              => "Empresa ABC", // seu nome de empresa
     'tipo_inscricao'            => 2, // 1 para cpf, 2 cnpj 
     'numero_inscricao'          => '123.122.123-56', // seu cpf ou cnpj completo
@@ -44,7 +19,8 @@ $arquivo = new Remessa(756, 'cnab400', [
     'numero_sequencial_arquivo' => 1,
     'situacao_arquivo'          => 'P' // use T para teste e P para produ��o
 ]);
-$lote    = $arquivo->addLote(['tipo_servico' => 1]); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
+
+$lote = $arquivo->addLote(['tipo_servico' => 1]); // tipo_servico  = 1 para cobran�a registrada, 2 para sem registro
 
 $lote->inserirDetalhe([
     'codigo_ocorrencia' => 1, //1 = Entrada de título, para outras opções ver nota explicativa C004 manual Cnab_SIGCB na pasta docs
@@ -85,5 +61,8 @@ $lote->inserirDetalhe([
     'taxa_multa'       => 30.00, // taxa de multa em percentual
     'taxa_juros'       => 30.00, // taxa de juros em percentual
 ]);
-echo $arquivo->getText();
-?>
+
+
+$file = fopen('teste.rem', "w");
+fwrite($file, $arquivo->getText());
+fclose($file);

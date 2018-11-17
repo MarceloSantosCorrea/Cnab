@@ -30,6 +30,8 @@ use Exception;
 
 class Registro3Q extends Generico3
 {
+    protected $registroClass = __CLASS__;
+
     protected $meta = [
         'codigo_banco'     => [          // 1.3Q
             'tamanho'  => 3,

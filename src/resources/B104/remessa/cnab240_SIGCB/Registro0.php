@@ -6,7 +6,8 @@ use \Cnab\resources\generico\remessa\cnab240\Generico0;
 
 class Registro0 extends Generico0
 {
-    protected $meta = [
+    protected $registroClass = __CLASS__;
+    protected $meta          = [
         'codigo_banco'              => [
             'tamanho'  => 3,
             'default'  => '104',

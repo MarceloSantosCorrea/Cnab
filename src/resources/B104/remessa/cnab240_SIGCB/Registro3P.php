@@ -8,6 +8,8 @@ use Cnab\RemessaAbstract;
 
 class Registro3P extends Generico3
 {
+    protected $registroClass = __CLASS__;
+
     protected $meta = [
         'codigo_banco'     => [          // 1.3P
             'tamanho'  => 3,
@@ -293,15 +295,13 @@ class Registro3P extends Generico3
     {
         $class            = 'Cnab\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3Q';
         $this->children[] = new $class($data);
-        if (isset($data['codigo_desconto2']) ||
-            isset($data['codigo_desconto3']) ||
-            isset($data['codigo_multa']) ||
-            isset($data['mensagem']) ||
-            isset($data['email_pagador'])
-        ) {
+
+        if (isset($data['codigo_desconto2']) || isset($data['codigo_desconto3']) || isset($data['codigo_multa']) ||
+            isset($data['mensagem']) || isset($data['email_pagador'])) {
             $class            = 'Cnab\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3R';
             $this->children[] = new $class($data);
         }
+
         if ($data['emissao_boleto'] == 1) {
             if (isset($data['mensagem_frente'])) {
                 $data['mensagem_140']   = $data['mensagem_frente'];
