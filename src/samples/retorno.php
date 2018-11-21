@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../vendor/autoload.php';
 use Cnab\Retorno;
 
 
-$fileContent = file_get_contents('src/samples/RETORNO-05.ret');
+$fileContent = file_get_contents('src/samples/retorno-000021.ret');
 //$fileContent = file_get_contents('src/samples/RETORNO-PRE-REMESSA-02-ok.ret');
 
 try {
@@ -13,6 +13,8 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
+
+dd($arquivo);
 ?>
 
 <html>

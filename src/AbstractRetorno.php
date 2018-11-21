@@ -54,57 +54,48 @@ abstract class AbstractRetorno
         self::$layout = "L" . $layout_versao;
         self::$lines  = $lines;
 
-        $class            = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
-        $this->children[] = new $class($lines[0]);
+        $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
+        $this->children['registro0'] = (new $class($lines[0]))->toArray();
 
-        $class            = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
-        $this->children[] = new $class($lines[count($lines) - 2]);
-    }
 
-    /*
-    * método changeLayout()
-    * Recebe os parametros
-    * @$newLayout = altera o layout do lote , servira para enviar lotes de layouts diferentes no mesmo arquvio //(ALERTA) nao testado
-    */
-    public function changeLayout($newLayout)
-    {
-        self::$layout = $newLayout;
-    }
+        for ($i = 1; $i < count($lines); $i++) {
 
-    /*
-    * método getLote()
-    * Metodo statico para pegar o objeto do lote
-    * @$index = o indice do lote , normalmente 1
-    */
-    public function getRegistros($lote = 1)
-    {
-        $arquivo = $this->children[0];
+            if (substr($lines[$i], 7, 1) == 1) {
+                $detalhesCount = 0;
 
-        return $arquivo->getRegistros($lote);
-    }
+                $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro1';
+                $this->children['lotes'][self::$loteCounter]['registro1'] = (new $class($lines[$i]))->toArray();
+            }
 
-    /*
-    * método getChilds()
-    * Metodo que retorna todos os filhos
-    */
-    public function getChilds()
-    {
-        $arquivo = $this->children[0];
+            if (substr($lines[$i], 7, 1) == 3) {
 
-        return $arquivo->getChilds();
-    }
+                if (substr($lines[$i], 13, 1) == 'T') {
+                    $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3T';
+                    $detalhe[$detalhesCount]['registro3T'] = (new $class($lines[$i]))->toArray();
+                }
 
-    public function getChild($index = 0)
-    {
-        $arquivo = $this->children[0];
+                if (substr($lines[$i], 13, 1) == 'U') {
+                    $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3U';
+                    $detalhe[$detalhesCount]['registro3U'] = (new $class($lines[$i]))->toArray();
 
-        return $arquivo->getChild($index);
-    }
+                    $detalhesCount++;
+                }
 
-    public function getLayout()
-    {
-        $arquivo = $this->children[0];
+                $this->children['lotes'][self::$loteCounter]['detalhes'] = $detalhe;
+            }
 
-        return (self::$layout != 'L400') ? $arquivo->versao_layout : 'L400';
+            if (substr($lines[$i], 7, 1) == 5) {
+                $detalhesCount = 0;
+
+                $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro5';
+                $this->children['lotes'][self::$loteCounter]['registro5'] = (new $class($lines[$i]))->toArray();
+                self::$loteCounter++;
+            }
+        }
+
+        $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
+        $this->children['registro9'] = (new $class($lines[count($lines) - 2]))->toArray();
+
+        return $this->children;
     }
 }

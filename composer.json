@@ -12,5 +12,8 @@
     "psr-4": {
       "Cnab\\": "src/"
     }
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^4.1"
   }
 }

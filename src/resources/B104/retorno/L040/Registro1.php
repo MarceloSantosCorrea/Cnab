@@ -155,26 +155,4 @@ class Registro1 extends Generico1
             'required' => true,
         ],
     ];
-
-    public function __construct($linhaTxt)
-    {
-        parent::__construct($linhaTxt);
-        $this->inserirDetalhe();
-    }
-
-    /*
-    * método inserirDetalhe()
-    * Recebe os parametros
-    * @$data = um array contendo os dados nessesarios para o arquvio
-    */
-    public function inserirDetalhe()
-    {
-        while ($this->data['codigo_lote'] == abs(substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter], 3, 4))) {
-            AbstractRetorno::$linesCounter++;
-            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3T';
-            $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-
-        }
-        AbstractRetorno::$linesCounter--;
-    }
 }

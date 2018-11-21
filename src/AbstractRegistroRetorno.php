@@ -54,16 +54,21 @@ abstract class AbstractRegistroRetorno
                     $this->data[$prop] = $retorno;
                     break;
                 case 'date':
-                    if ($metaData['tamanho'] == 6) {
-                        $data              = \DateTime::createFromFormat('dmy', sprintf('%06d', $value));
-                        $retorno           = $data->format('Y-m-d');
-                        $this->data[$prop] = $retorno;
 
-                    } elseif ($metaData['tamanho'] == 8) {
-                        $data              = \DateTime::createFromFormat('dmY', sprintf('%08d', $value));
-                        $retorno           = $data->format("Y-m-d");
-                        $this->data[$prop] = $retorno;
-                    }
+                    if ($value == '00000000')
+                        $this->data[$prop] = '00000000';
+                    else
+                        if ($metaData['tamanho'] == 6) {
+                            $data              = \DateTime::createFromFormat('dmy', sprintf('%06d', $value));
+                            $retorno           = $data->format('Y-m-d');
+                            $this->data[$prop] = $retorno;
+
+                        } elseif ($metaData['tamanho'] == 8) {
+                            $data              = \DateTime::createFromFormat('dmY', sprintf('%08d', $value));
+                            $retorno           = $data->format("Y-m-d");
+                            $this->data[$prop] = $retorno;
+                        }
+
                     break;
                 default:
                     $this->data[$prop] = $value;
@@ -119,38 +124,8 @@ abstract class AbstractRegistroRetorno
         }
     }
 
-    public function get_meta()
+    public function toArray()
     {
-        return $this->meta;
-    }
-
-    /*
-    * método getUnformated()
-    * busca o valor de dentro do campo dentro do objeto de forma simples sem formataÃ§Ã£o de valor por exemplo
-    */
-    public function getUnformated($prop)
-    {
-        // retorna o valor da propriedade
-        if (isset($this->data[$prop])) {
-            return $this->data[$prop];
-        }
-    }
-
-    /*
-    * método getChilds()
-    * Metodo que retorna todos os filhos
-    */
-    public function getChilds()
-    {
-        return $this->children;
-    }
-
-    /*
-    * método getChild()
-    * Metodo que retorna um filho
-    */
-    public function getChild($index = 0)
-    {
-        return $this->children[$index];
+        return $this->data;
     }
 }

@@ -155,22 +155,4 @@ class Registro0 extends Generico0
             'required' => true,
         ],
     ];
-
-    public function __construct($linhaTxt)
-    {
-        parent::__construct($linhaTxt);
-        AbstractRetorno::$linesCounter++;
-        $this->inserirDetalhe();
-    }
-
-    public function inserirDetalhe()
-    {
-        while (AbstractRetorno::$linesCounter < (count(AbstractRetorno::$lines) - 4)) {
-            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
-            $lote             = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro5';
-            $lote->trailler   = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-            $this->children[] = $lote;
-        }
-    }
 }

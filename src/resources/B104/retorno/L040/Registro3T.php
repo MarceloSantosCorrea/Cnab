@@ -157,7 +157,7 @@ class Registro3T extends Generico3
         'dv_agencia_receb'    => [ //20.3
             'tamanho'  => 1,
             'default'  => '',
-            'tipo'     => 'date',
+            'tipo'     => 'int',
             'required' => true,
         ],
         'seu_numero2'         => [ //21.3T
@@ -206,7 +206,7 @@ class Registro3T extends Generico3
         'codigo_ocorrencia'   => [ //28.3T
             'tamanho'  => 10,
             'default'  => '0',
-            'tipo'     => 'date',
+            'tipo'     => 'int',
             'required' => true,
         ],
         'filler7'             => [ //29.3T
@@ -216,50 +216,4 @@ class Registro3T extends Generico3
             'required' => true,
         ],
     ];
-
-    public function __construct($data = null)
-    {
-        if (empty($this->data)) parent::__construct($data);
-        $this->inserirDetalhe($data);
-    }
-
-    public function inserirDetalhe($data)
-    {
-        AbstractRetorno::$linesCounter++;
-        $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3U';
-        $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-
-        if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 14, 1) == "Y") {
-            if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "50") {
-                //RetornoAbstract::$linesCounter++;
-                //$class = 'Cnab\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
-                //$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-            } elseif (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "08") {
-                AbstractRetorno::$linesCounter++;
-                $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3Y08';
-                $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-            }
-        }
-    }
-
-    public function get_data_ocorrencia()
-    {
-        $r3u = $this->R3U;
-
-        return $r3u->___get('data_ocorrencia');
-    }
-
-    public function get_vlr_pago()
-    {
-        $r3u = $this->R3U;
-
-        return $r3u->___get('vlr_pago');
-    }
-
-    public function get_codigo_movimento()
-    {
-        $r3u = $this->R3U;
-
-        return $r3u->codigo_movimento;
-    }
 }
