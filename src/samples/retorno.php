@@ -1,13 +1,11 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use Cnab\Retorno;
 
 
 $fileContent = file_get_contents('src/samples/RETORNO-05.ret');
-
-
 //$fileContent = file_get_contents('src/samples/RETORNO-PRE-REMESSA-02-ok.ret');
 
 try {
@@ -15,8 +13,6 @@ try {
 } catch (\Exception $e) {
     echo $e->getMessage();
 }
-
-$registros = $arquivo->getRegistros();
 ?>
 
 <html>
@@ -52,7 +48,7 @@ $registros = $arquivo->getRegistros();
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($registros as $registro): ?>
+                <?php foreach ($arquivo->getRegistros() as $registro): ?>
                     <tr>
                         <td><?= $registro->codigo_banco ?> </td>
                         <td><?= $registro->codigo_lote ?> </td>

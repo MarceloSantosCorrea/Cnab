@@ -2,8 +2,6 @@
 
 namespace Cnab;
 
-use Exception;
-
 abstract class AbstractRegistroRetorno
 {
     protected $data; // array contendo os dados do objeto
@@ -16,7 +14,6 @@ abstract class AbstractRegistroRetorno
     */
     public function __construct($linhaTxt)
     {
-        // carrega o objeto correspondente
         $posicao = 0;
         foreach ($this->meta as $key => $value) {
 
@@ -29,10 +26,9 @@ abstract class AbstractRegistroRetorno
         }
     }
 
-
     /*
     * método __set()
-    * executado sempre que uma propriedade for atribuÃ­da.
+    * executado sempre que uma propriedade for atribuída.
     */
     public function __set($prop, $value)
     {
@@ -100,31 +96,21 @@ abstract class AbstractRegistroRetorno
         // retorna o valor da propriedade
         if (isset($this->meta[$prop])) {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
-            //$this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop]==''?$metaData['default']:$this->data[$prop];
-            //if($metaData['required']==true && ($this->data[$prop]=='' || !isset($this->data[$prop])))
-            //{
-            //	throw new Exception('Campo faltante ou com valor nulo:'.$prop);
-            //}
             switch ($metaData['tipo']) {
                 case 'decimal':
                     return ($this->data[$prop]) ? number_format($this->data[$prop], $metaData['precision'], ',', '.') : '';
-                    //return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 case 'int':
                     return (isset($this->data[$prop])) ? abs($this->data[$prop]) : '';
-                    //return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 case 'alfa':
                     return ($this->data[$prop]) ? $this->prepareText($this->data[$prop]) : '';
-                    //return str_pad(substr($retorno,0,$metaData['tamanho']),$metaData['tamanho'],' ',STR_PAD_RIGHT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 6:
                     return ($this->data[$prop]) ? date("d/m/y", strtotime($this->data[$prop])) : '';
-                    //return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 8:
                     return ($this->data[$prop]) ? date("d/m/Y", strtotime($this->data[$prop])) : '';
-                    //return str_pad($retorno,$metaData['tamanho'],'0',STR_PAD_LEFT);
                     break;
                 default:
                     return null;
@@ -167,5 +153,4 @@ abstract class AbstractRegistroRetorno
     {
         return $this->children[$index];
     }
-
 }
