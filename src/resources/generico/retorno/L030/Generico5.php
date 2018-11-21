@@ -24,21 +24,21 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
-use Cnab\RegistroRemAbstract;
-use Cnab\RemessaAbstract;
+use Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRemessa;
 use Exception;
 
-class Generico5 extends RegistroRemAbstract
+class Generico5 extends AbstractRegistroRemessa
 {
     protected function set_codigo_lote($value)
     {
         //ArquivoAbstract::$loteCounter++; 
-        $this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
+        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
     }
 
     protected function set_qtd_registros($value)
     {
-        $lote                        = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote                        = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['qtd_registros'] = $lote->get_counter();
     }
 }

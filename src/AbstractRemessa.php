@@ -2,7 +2,7 @@
 
 namespace Cnab;
 
-abstract class RemessaAbstract
+abstract class AbstractRemessa
 {
     public static  $banco; // sera atribuido o nome do banco que tambem ? o nome da pasta que contem os layouts
     public static  $layout;// recebera o nome do layout na instacia?ao
@@ -59,7 +59,7 @@ abstract class RemessaAbstract
     * @RegistroRemAbstract $child = recebe um filho de RegistroRemAbstract
     */
 
-    static private function addChild(RegistroRemAbstract $child)
+    static private function addChild(AbstractRegistroRemessa $child)
     {
         self::$children[] = $child;
     }
@@ -73,7 +73,7 @@ abstract class RemessaAbstract
     {
         if (strpos(self::$layout, '240')) {
             $class    = '\Cnab\resources\\' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
-            $loteData = $data ? $data : RemessaAbstract::$entryData;
+            $loteData = $data ? $data : AbstractRemessa::$entryData;
             $lote     = new $class($loteData);
             self::addChild($lote);
         } else {

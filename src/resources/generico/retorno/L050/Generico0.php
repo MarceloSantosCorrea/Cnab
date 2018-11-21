@@ -2,9 +2,9 @@
 
 namespace Cnab\resources\generico\retorno\L050;
 
-use Cnab\RegistroRetAbstract;
+use Cnab\AbstractRegistroRetorno;
 
-class Generico0 extends RegistroRetAbstract
+class Generico0 extends AbstractRegistroRetorno
 {
     public function getRegistros($lote = 1)
     {

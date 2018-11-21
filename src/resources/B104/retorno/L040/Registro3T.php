@@ -26,7 +26,7 @@
 namespace Cnab\resources\B104\retorno\L040;
 
 use Cnab\resources\generico\retorno\L040\Generico3;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 use Cnab\Exception;
 
 class Registro3T extends Generico3
@@ -217,18 +217,18 @@ class Registro3T extends Generico3
 
     public function inserirDetalhe($data)
     {
-        RetornoAbstract::$linesCounter++;
-        $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3U';
-        $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-        if (substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 14, 1) == "Y") {
-            if (substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 18, 2) == "50") {
+        AbstractRetorno::$linesCounter++;
+        $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3U';
+        $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
+        if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 14, 1) == "Y") {
+            if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "50") {
                 //RetornoAbstract::$linesCounter++;
                 //$class = 'Cnab\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
                 //$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-            } elseif (substr(RetornoAbstract::$lines[RetornoAbstract::$linesCounter + 1], 18, 2) == "08") {
-                RetornoAbstract::$linesCounter++;
-                $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro3Y08';
-                $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+            } elseif (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "08") {
+                AbstractRetorno::$linesCounter++;
+                $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3Y08';
+                $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
             }
         }
     }

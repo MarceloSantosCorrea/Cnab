@@ -4,7 +4,7 @@ namespace Cnab;
 
 use Exception;
 
-abstract class RegistroRemAbstract
+abstract class AbstractRegistroRemessa
 {
     protected $data; // array contendo os dados do objeto
     protected $meta;
@@ -199,7 +199,7 @@ abstract class RegistroRemAbstract
         foreach ($this->meta as $key => $value) {
             $retorno .= $this->$key;
         }
-        RemessaAbstract::$retorno[] = $retorno;
+        AbstractRemessa::$retorno[] = $retorno;
         if ($this->children) {
             // percorre todos objetos filhos
             foreach ($this->children as $child) {

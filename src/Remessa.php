@@ -2,7 +2,7 @@
 
 namespace Cnab;
 
-class Remessa extends RemessaAbstract
+class Remessa extends AbstractRemessa
 {
     public function __construct($banco, $layout, $data)
     {

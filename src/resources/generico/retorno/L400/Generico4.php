@@ -25,12 +25,12 @@
 */
 namespace Cnab\resources\generico\retorno\L400;
 
-use Cnab\RegistroRetAbstract;
-use Cnab\RemessaAbstract;
+use Cnab\AbstractRegistroRetorno;
+use Cnab\AbstractRemessa;
 use Cnab\Especie;
 use Exception;
 
-class Generico4 extends RegistroRetAbstract
+class Generico4 extends AbstractRegistroRetorno
 {
 
 }

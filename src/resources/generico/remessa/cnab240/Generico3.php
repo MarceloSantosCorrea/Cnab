@@ -2,11 +2,11 @@
 
 namespace Cnab\resources\generico\remessa\cnab240;
 
-use Cnab\RegistroRemAbstract;
-use Cnab\RemessaAbstract;
+use Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRemessa;
 use Cnab\Especie;
 
-class Generico3 extends RegistroRemAbstract
+class Generico3 extends AbstractRegistroRemessa
 {
 
     /**
@@ -14,7 +14,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_codigo_lote($value)
     {
-        $this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
+        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
     }
 
     /**
@@ -22,7 +22,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_numero_registro($value)
     {
-        $lote                          = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote                          = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['numero_registro'] = $lote->get_counter();
     }
 
@@ -47,7 +47,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_codigo_beneficiario($value)
     {
-        $this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_beneficiario'] = AbstractRemessa::$entryData['codigo_beneficiario'];
     }
 
     /**
@@ -55,7 +55,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_agencia($value)
     {
-        $this->data['agencia'] = RemessaAbstract::$entryData['agencia'];
+        $this->data['agencia'] = AbstractRemessa::$entryData['agencia'];
     }
 
     /**
@@ -63,7 +63,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_agencia_dv($value)
     {
-        $this->data['agencia_dv'] = RemessaAbstract::$entryData['agencia_dv'];
+        $this->data['agencia_dv'] = AbstractRemessa::$entryData['agencia_dv'];
     }
 
     /**
@@ -71,7 +71,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_codigo_convenio($value)
     {
-        $this->data['codigo_convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_convenio'] = AbstractRemessa::$entryData['codigo_beneficiario'];
     }
 
     /**
@@ -79,7 +79,7 @@ class Generico3 extends RegistroRemAbstract
      */
     protected function set_com_registro($value)
     {
-        $lote                       = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote                       = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['com_registro'] = $lote->tipo_servico;
     }
 

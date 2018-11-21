@@ -1,40 +1,17 @@
 <?php
-/*
-* Cnab - Geração de arquivos de remessa e retorno em PHP
-*
-* LICENSE: The MIT License (MIT)
-*
-* Copyright (C) 2013 Ciatec.net
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy of this
-* software and associated documentation files (the "Software"), to deal in the Software
-* without restriction, including without limitation the rights to use, copy, modify,
-* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
-* permit persons to whom the Software is furnished to do so, subject to the following
-* conditions:
-*
-* The above copyright notice and this permission notice shall be included in all copies
-* or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
 namespace Cnab\resources\generico\remessa\cnab240;
-use Cnab\RegistroRemAbstract;
-use Cnab\RemessaAbstract;
+
+use Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRemessa;
 use Exception;
 
-class Generico1 extends RegistroRemAbstract
+class Generico1 extends AbstractRegistroRemessa
 {
     protected $counter = 0;
 
     protected function set_codigo_lote($value)
     {
-        $this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
+        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
     }
 
     public function set_tipo_servico($value)
@@ -52,7 +29,7 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_tipo_inscricao($value)
     {
-        $value = $value ? $value : RemessaAbstract::$entryData['tipo_inscricao'];
+        $value = $value ? $value : AbstractRemessa::$entryData['tipo_inscricao'];
         if ($value == 1 || $value == 2) {
             $this->data['tipo_inscricao'] = $value;
         } else {
@@ -62,37 +39,37 @@ class Generico1 extends RegistroRemAbstract
 
     protected function set_numero_inscricao($value)
     {
-        $this->data['numero_inscricao'] = $value == '' ? str_ireplace(['.', '/', '-'], [''], RemessaAbstract::$entryData['numero_inscricao']) : str_ireplace(['.', '/', '-'], [''], $value);
+        $this->data['numero_inscricao'] = $value == '' ? str_ireplace(['.', '/', '-'], [''], AbstractRemessa::$entryData['numero_inscricao']) : str_ireplace(['.', '/', '-'], [''], $value);
     }
 
     protected function set_codigo_beneficiario($value)
     {
-        $this->data['codigo_beneficiario'] = $value == '' ? RemessaAbstract::$entryData['codigo_beneficiario'] : $value;
+        $this->data['codigo_beneficiario'] = $value == '' ? AbstractRemessa::$entryData['codigo_beneficiario'] : $value;
     }
 
     protected function set_agencia($value)
     {
-        $this->data['agencia'] = $value == '' ? RemessaAbstract::$entryData['agencia'] : $value;
+        $this->data['agencia'] = $value == '' ? AbstractRemessa::$entryData['agencia'] : $value;
     }
 
     protected function set_agencia_dv($value)
     {
-        $this->data['agencia_dv'] = $value == '' ? RemessaAbstract::$entryData['agencia_dv'] : $value;
+        $this->data['agencia_dv'] = $value == '' ? AbstractRemessa::$entryData['agencia_dv'] : $value;
     }
 
     protected function set_codigo_convenio($value)
     {
-        $this->data['codigo_convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_convenio'] = AbstractRemessa::$entryData['codigo_beneficiario'];
     }
 
     protected function set_nome_empresa($value)
     {
-        $this->data['nome_empresa'] = $value == '' ? RemessaAbstract::$entryData['nome_empresa'] : $value;
+        $this->data['nome_empresa'] = $value == '' ? AbstractRemessa::$entryData['nome_empresa'] : $value;
     }
 
     protected function set_numero_remessa($value)
     {
-        $this->data['numero_remessa'] = $value == '' ? RemessaAbstract::$entryData['numero_sequencial_arquivo'] : $value;
+        $this->data['numero_remessa'] = $value == '' ? AbstractRemessa::$entryData['numero_sequencial_arquivo'] : $value;
     }
 
     protected function set_data_gravacao($value)
@@ -109,7 +86,7 @@ class Generico1 extends RegistroRemAbstract
 
     public function inserirDetalhe($data)
     {
-        $class            = 'Cnab\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro3P';
+        $class            = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro3P';
         $this->children[] = new $class($data);
     }
 
@@ -127,7 +104,7 @@ class Generico1 extends RegistroRemAbstract
         foreach ($this->meta as $key => $value) {
             $retorno .= $this->$key;
         }
-        RemessaAbstract::$retorno[] = $retorno;
+        AbstractRemessa::$retorno[] = $retorno;
         if ($this->children) {
             // percorre todos objetos filhos
             foreach ($this->children as $child) {
@@ -146,11 +123,9 @@ class Generico1 extends RegistroRemAbstract
                 }
                 $child->getText();
             }
-            $class     = 'Cnab\resources\\' . RemessaAbstract::$banco . '\remessa\\' . RemessaAbstract::$layout . '\Registro5';
+            $class     = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro5';
             $registro5 = new $class($dataReg5);
             $registro5->getText();
         }
     }
 }
-
-?>

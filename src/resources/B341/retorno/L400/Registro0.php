@@ -25,7 +25,7 @@
 */
 namespace Cnab\resources\B341\retorno\L400;
 use Cnab\resources\generico\retorno\L400\Generico0;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 
 class Registro0 extends Generico0
 {
@@ -116,15 +116,15 @@ class Registro0 extends Generico0
     public function __construct($linhaTxt)
     {
         parent::__construct($linhaTxt);
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
         $this->inserirDetalhe();
     }
 
     public function inserirDetalhe()
     {
-        while (RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines) - 2)) {
-            $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro1';
-            $this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+        while (AbstractRetorno::$linesCounter < (count(AbstractRetorno::$lines) - 2)) {
+            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
+            $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
         }
         //RetornoAbstract::$linesCounter--;
     }

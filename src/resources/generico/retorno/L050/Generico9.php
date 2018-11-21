@@ -2,10 +2,10 @@
 
 namespace Cnab\resources\generico\retorno\L050;
 
-use Cnab\RegistroRetAbstract;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRegistroRetorno;
+use Cnab\AbstractRetorno;
 use Exception;
 
-class Generico9 extends RegistroRetAbstract
+class Generico9 extends AbstractRegistroRetorno
 {
 }

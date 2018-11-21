@@ -2,7 +2,7 @@
 
 namespace Cnab;
 
-class Retorno extends RetornoAbstract
+class Retorno extends AbstractRetorno
 {
     public function __construct($conteudo)
     {

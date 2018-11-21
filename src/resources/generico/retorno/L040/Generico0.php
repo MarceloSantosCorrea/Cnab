@@ -24,10 +24,10 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L040;
-use Cnab\RegistroRetAbstract;
+use Cnab\AbstractRegistroRetorno;
 use Exception;
 
-class Generico0 extends RegistroRetAbstract
+class Generico0 extends AbstractRegistroRetorno
 {
     public function getRegistros($lote = 1)
     {

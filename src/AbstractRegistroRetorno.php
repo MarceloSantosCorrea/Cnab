@@ -4,7 +4,7 @@ namespace Cnab;
 
 use Exception;
 
-abstract class RegistroRetAbstract
+abstract class AbstractRegistroRetorno
 {
     protected $data; // array contendo os dados do objeto
     protected $meta;

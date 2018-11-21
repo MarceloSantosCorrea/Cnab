@@ -1,18 +1,22 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
-
-use \Cnab\Retorno;
-
 require_once __DIR__ . '/vendor/autoload.php';
 
-$fileContent = file_get_contents('src/samples/RETORNO-PRE-REMESSA-10.ret');
+use Cnab\Retorno;
+
+
+$fileContent = file_get_contents('src/samples/RETORNO-05.ret');
+
+
 //$fileContent = file_get_contents('src/samples/RETORNO-PRE-REMESSA-02-ok.ret');
 
-$arquivo = new Retorno($fileContent);
+try {
+    $arquivo = new Retorno($fileContent);
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
 
 $registros = $arquivo->getRegistros();
-
 ?>
 
 <html>

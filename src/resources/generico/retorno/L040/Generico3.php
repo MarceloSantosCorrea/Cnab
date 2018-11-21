@@ -25,12 +25,12 @@
 */
 namespace Cnab\resources\generico\retorno\L040;
 
-use Cnab\RegistroRetAbstract;
-use Cnab\RemessaAbstract;
+use Cnab\AbstractRegistroRetorno;
+use Cnab\AbstractRemessa;
 use Cnab\Especie;
 use Exception;
 
-class Generico3 extends RegistroRetAbstract
+class Generico3 extends AbstractRegistroRetorno
 {
     public function get_R3U()
     {

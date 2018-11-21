@@ -24,9 +24,9 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
-use Cnab\RegistroRetAbstract;
+use Cnab\AbstractRegistroRetorno;
 
-class Generico0 extends RegistroRetAbstract
+class Generico0 extends AbstractRegistroRetorno
 {
     protected $counter;
     /*protected function set_situacao_arquivo($value)

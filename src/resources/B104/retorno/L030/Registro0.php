@@ -25,7 +25,7 @@
  */
 namespace Cnab\resources\B104\retorno\L030; // SIGCB
 use Cnab\resources\generico\retorno\L030\Generico0;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 
 class Registro0 extends Generico0
 {
@@ -154,7 +154,7 @@ class Registro0 extends Generico0
     public function __construct($linhaTxt)
     {
         parent::__construct($linhaTxt);
-        $this->inserirDetalhe(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+        $this->inserirDetalhe(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
     }
 
     /*
@@ -167,7 +167,7 @@ class Registro0 extends Generico0
 
         $class = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro1';
         self::addChild(new $class($linhaTxt));
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
         //self::$counter++;
     }
 }

@@ -24,58 +24,58 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
-use Cnab\RegistroRemAbstract;
-use Cnab\RemessaAbstract;
+use Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRemessa;
 use Cnab\Especie;
 use Exception;
 
-class Generico3 extends RegistroRemAbstract
+class Generico3 extends AbstractRegistroRemessa
 {
     protected function set_codigo_lote($value)
     {
         //ArquivoAbstract::$loteCounter++;
-        $this->data['codigo_lote'] = RemessaAbstract::$loteCounter;
+        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
     }
 
     protected function set_numero_registro($value)
     {
-        $lote                          = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote                          = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['numero_registro'] = $lote->get_counter();
     }
 
     protected function set_tipo_inscricao($value)
     {
-        $this->data['tipo_inscricao'] = RemessaAbstract::$entryData['tipo_inscricao'];
+        $this->data['tipo_inscricao'] = AbstractRemessa::$entryData['tipo_inscricao'];
     }
 
     protected function set_numero_inscricao($value)
     {
-        $this->data['numero_inscricao'] = ($value != '') ? str_ireplace(['.', '/', '-'], [''], $value) : str_ireplace(['.', '/', '-'], [''], RemessaAbstract::$entryData['numero_inscricao']);
+        $this->data['numero_inscricao'] = ($value != '') ? str_ireplace(['.', '/', '-'], [''], $value) : str_ireplace(['.', '/', '-'], [''], AbstractRemessa::$entryData['numero_inscricao']);
     }
 
     protected function set_codigo_beneficiario($value)
     {
-        $this->data['codigo_beneficiario'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_beneficiario'] = AbstractRemessa::$entryData['codigo_beneficiario'];
     }
 
     protected function set_agencia($value)
     {
-        $this->data['agencia'] = RemessaAbstract::$entryData['agencia'];
+        $this->data['agencia'] = AbstractRemessa::$entryData['agencia'];
     }
 
     protected function set_agencia_dv($value)
     {
-        $this->data['agencia_dv'] = RemessaAbstract::$entryData['agencia_dv'];
+        $this->data['agencia_dv'] = AbstractRemessa::$entryData['agencia_dv'];
     }
 
     protected function set_codigo_convenio($value)
     {
-        $this->data['codigo_convenio'] = RemessaAbstract::$entryData['codigo_beneficiario'];
+        $this->data['codigo_convenio'] = AbstractRemessa::$entryData['codigo_beneficiario'];
     }
 
     protected function set_com_registro($value)
     {
-        $lote                       = RemessaAbstract::getLote(RemessaAbstract::$loteCounter);
+        $lote                       = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['com_registro'] = $lote->tipo_servico;
     }
 

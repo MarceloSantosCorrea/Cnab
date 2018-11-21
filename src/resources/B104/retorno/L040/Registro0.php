@@ -1,31 +1,9 @@
 <?php
-/*
-* Cnab - Geração de arquivos de remessa e retorno em PHP
-*
-* LICENSE: The MIT License (MIT)
-*
-* Copyright (C) 2013 Ciatec.net
-*
-* Permission is hereby granted, free of charge, to any person obtaining a copy of this
-* software and associated documentation files (the "Software"), to deal in the Software
-* without restriction, including without limitation the rights to use, copy, modify,
-* merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
-* permit persons to whom the Software is furnished to do so, subject to the following
-* conditions:
-*
-* The above copyright notice and this permission notice shall be included in all copies
-* or substantial portions of the Software.
-*
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-* INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
-* PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-* OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-*/
-namespace Cnab\resources\B104\retorno\L040; // SIGCB
+
+namespace Cnab\resources\B104\retorno\L040;
+
+use Cnab\AbstractRetorno;
 use Cnab\resources\generico\retorno\L040\Generico0;
-use Cnab\RetornoAbstract;
 
 class Registro0 extends Generico0
 {
@@ -156,18 +134,18 @@ class Registro0 extends Generico0
     public function __construct($linhaTxt)
     {
         parent::__construct($linhaTxt);
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
         $this->inserirDetalhe();
     }
 
     public function inserirDetalhe()
     {
-        while (RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines) - 4)) {
+        while (AbstractRetorno::$linesCounter < (count(AbstractRetorno::$lines) - 4)) {
 
-            $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro1';
-            $lote             = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-            $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro5';
-            $lote->trailler   = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
+            $lote             = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
+            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro5';
+            $lote->trailler   = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
             $this->children[] = $lote;
         }
     }

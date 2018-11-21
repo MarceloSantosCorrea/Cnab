@@ -25,7 +25,7 @@
 */
 namespace Cnab\resources\B341\retorno\L040; // SIGCB
 use Cnab\resources\generico\retorno\L040\Generico0;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 
 class Registro0 extends Generico0
 {
@@ -156,18 +156,18 @@ class Registro0 extends Generico0
     public function __construct($linhaTxt)
     {
         parent::__construct($linhaTxt);
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
         $this->inserirDetalhe();
     }
 
     public function inserirDetalhe()
     {
-        while (RetornoAbstract::$linesCounter < (count(RetornoAbstract::$lines) - 4)) {
+        while (AbstractRetorno::$linesCounter < (count(AbstractRetorno::$lines) - 4)) {
 
-            $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro1';
-            $lote             = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-            $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\retorno\\' . RetornoAbstract::$layout . '\Registro5';
-            $lote->trailler   = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
+            $lote             = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
+            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro5';
+            $lote->trailler   = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
             $this->children[] = $lote;
         }
     }

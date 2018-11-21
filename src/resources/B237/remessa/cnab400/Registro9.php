@@ -1,5 +1,6 @@
 <?php
-namespace Cnab\resources\b237\remessa\cnab400;
+
+namespace Cnab\resources\B237\remessa\cnab400;
 
 use Cnab\resources\generico\remessa\cnab400\Generico1;
 
@@ -10,18 +11,19 @@ class Registro9 extends Generico1
             'tamanho'  => 1,
             'default'  => '9',
             'tipo'     => 'int',
-            'required' => true],
-        'filler1'         => [            //32.3P
+            'required' => true,
+        ],
+        'filler1'         => [ //32.3P
             'tamanho'  => 393,
             'default'  => ' ',
             'tipo'     => 'alfa',
-            'required' => true],
-        'numero_registro' => [       // 4.3R
+            'required' => true,
+        ],
+        'numero_registro' => [ //4.3R
             'tamanho'  => 6,
             'default'  => '0',
             'tipo'     => 'int',
-            'required' => true],
+            'required' => true,
+        ],
     ];
 }
-
-?>

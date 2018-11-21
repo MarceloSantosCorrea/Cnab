@@ -25,7 +25,7 @@
 */
 namespace Cnab\resources\B341\retorno\L400;
 use Cnab\resources\generico\retorno\L400\Generico1;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 
 class Registro1 extends Generico1
 {
@@ -275,7 +275,7 @@ class Registro1 extends Generico1
     {
         parent::__construct($linhaTxt);
 
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
         //$this->inserirDetalhe();
     }
     /*

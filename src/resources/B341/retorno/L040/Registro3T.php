@@ -25,7 +25,7 @@
  */
 namespace Cnab\resources\B341\retorno\L040;
 use Cnab\resources\generico\retorno\L040\Generico3;
-use Cnab\RetornoAbstract;
+use Cnab\AbstractRetorno;
 use Cnab\Exception;
 
 class Registro3T extends Generico3
@@ -228,9 +228,9 @@ class Registro3T extends Generico3
 
     public function inserirDetalhe($data)
     {
-        $class            = 'Cnab\resources\\' . RetornoAbstract::$banco . '\remessa\\' . RetornoAbstract::$layout . '\Registro3U';
+        $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\remessa\\' . AbstractRetorno::$layout . '\Registro3U';
         $this->children[] = new $class($data);
-        RetornoAbstract::$linesCounter++;
+        AbstractRetorno::$linesCounter++;
     }
 }
 

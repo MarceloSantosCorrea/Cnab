@@ -24,11 +24,11 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
-use Cnab\RegistroRetAbstract;
+use Cnab\AbstractRegistroRetorno;
 use cnabPHP\RetornoAbstract;
 use Exception;
 
-class Generico1 extends RegistroRetAbstract
+class Generico1 extends AbstractRegistroRetorno
 {
     protected $counter = 1;
 

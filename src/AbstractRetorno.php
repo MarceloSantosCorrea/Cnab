@@ -4,44 +4,40 @@ namespace Cnab;
 
 use Exception;
 
-abstract class RetornoAbstract
+abstract class AbstractRetorno
 {
-    //public  $hearder; // armazena o objeto registro 0 do arquivo
     private       $children     = []; // armazena os registros filhos da classe remessa
     public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
     public static $layout;// recebera o nome do layout na instacia?ao
     public static $loteCounter  = 1; // contador de lotes
     public static $lines; // mantem os dados passados em $data na instanciação
     public static $linesCounter = 0;
-    //public static $retorno = array(); // durante a geração do txt de retorno se tornara um array com as linhas do arquvio
 
-    /*
-    * método __construct()
-    * Recebe os parametros
-    * @$banco = nome do banco no momento so Caixa
-    * @$layout = nome do layout no momento so Cnab240_SIGCB
-    * @$data = um array contendo os dados nessesarios para o arquvio
-    */
-
+    /**
+     * AbstractRetorno constructor.
+     * @param $conteudo
+     * @throws Exception
+     * @$banco = nome do banco no momento so Caixa
+     * @$layout = nome do layout no momento so Cnab240_SIGCB
+     * @$data = um array contendo os dados nessesarios para o arquvio
+     */
     public function __construct($conteudo)
     {
         $conteudo = str_replace("\r\n", "\n", $conteudo);
 
         $lines = explode("\n", $conteudo);
         if (count($lines) < 2)
-            throw new Exception("Arquivo sem Conteudo");
+            throw new Exception("Invalid file.");
 
         $length        = strlen($lines[0]);
         $layout_versao = null;
 
         if ($length == 240 || $length == 241) {
-            $bytes         = 240;
             $layout_versao = substr($lines[0], 163, 3);
             $codigo_banco  = substr($lines[0], 0, 3);
             $codigo_tipo   = substr($lines[0], 142, 1);
 
         } elseif ($length == 400 || $length == 401) {
-            $bytes         = 400;
             $layout_versao = '400';
             $codigo_banco  = substr($lines[0], 76, 3);
             $codigo_tipo   = substr($lines[0], 1, 1);
@@ -110,6 +106,5 @@ abstract class RetornoAbstract
         $arquivo = $this->children[0];
 
         return (self::$layout != 'L400') ? $arquivo->versao_layout : 'L400';
-
     }
 }
