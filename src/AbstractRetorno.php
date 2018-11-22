@@ -17,9 +17,6 @@ abstract class AbstractRetorno
      * AbstractRetorno constructor.
      * @param $conteudo
      * @throws Exception
-     * @$banco = nome do banco no momento so Caixa
-     * @$layout = nome do layout no momento so Cnab240_SIGCB
-     * @$data = um array contendo os dados nessesarios para o arquvio
      */
     public function __construct($conteudo)
     {
@@ -57,40 +54,43 @@ abstract class AbstractRetorno
         $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
         $this->children['registro0'] = (new $class($lines[0]))->toArray();
 
+        if ($length == 240 || $length == 241) {
 
-        for ($i = 1; $i < count($lines); $i++) {
+            for ($i = 1; $i < count($lines); $i++) {
 
-            if (substr($lines[$i], 7, 1) == 1) {
-                $detalhesCount = 0;
+                if (substr($lines[$i], 7, 1) == 1) {
+                    $detalhesCount = 0;
 
-                $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro1';
-                $this->children['lotes'][self::$loteCounter]['registro1'] = (new $class($lines[$i]))->toArray();
-            }
-
-            if (substr($lines[$i], 7, 1) == 3) {
-
-                if (substr($lines[$i], 13, 1) == 'T') {
-                    $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3T';
-                    $detalhe[$detalhesCount]['registro3T'] = (new $class($lines[$i]))->toArray();
+                    $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro1';
+                    $this->children['lotes'][self::$loteCounter]['registro1'] = (new $class($lines[$i]))->toArray();
                 }
 
-                if (substr($lines[$i], 13, 1) == 'U') {
-                    $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3U';
-                    $detalhe[$detalhesCount]['registro3U'] = (new $class($lines[$i]))->toArray();
+                if (substr($lines[$i], 7, 1) == 3) {
 
-                    $detalhesCount++;
+                    if (substr($lines[$i], 13, 1) == 'T') {
+                        $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3T';
+                        $detalhe[$detalhesCount]['registro3T'] = (new $class($lines[$i]))->toArray();
+                    }
+
+                    if (substr($lines[$i], 13, 1) == 'U') {
+                        $class                                 = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro3U';
+                        $detalhe[$detalhesCount]['registro3U'] = (new $class($lines[$i]))->toArray();
+
+                        $detalhesCount++;
+                    }
+
+                    $this->children['lotes'][self::$loteCounter]['detalhes'] = $detalhe;
                 }
 
-                $this->children['lotes'][self::$loteCounter]['detalhes'] = $detalhe;
-            }
+                if (substr($lines[$i], 7, 1) == 5) {
+                    $detalhesCount = 0;
 
-            if (substr($lines[$i], 7, 1) == 5) {
-                $detalhesCount = 0;
-
-                $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro5';
-                $this->children['lotes'][self::$loteCounter]['registro5'] = (new $class($lines[$i]))->toArray();
-                self::$loteCounter++;
+                    $class                                                    = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro5';
+                    $this->children['lotes'][self::$loteCounter]['registro5'] = (new $class($lines[$i]))->toArray();
+                    self::$loteCounter++;
+                }
             }
+        } elseif ($length == 400 || $length == 401) {
         }
 
         $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
