@@ -23,7 +23,7 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-namespace Cnab\resources\B104\remessa\cnab240_SIGCB;
+namespace Cnab\resources\B104\retorno\cnab240_SIGCB;
 use Cnab\resources\generico\remessa\cnab240\Generico1;
 use Cnab\AbstractRetorno;
 
