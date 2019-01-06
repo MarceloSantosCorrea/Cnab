@@ -15,6 +15,7 @@ try {
 }
 
 dd($arquivo->getRegistros());
+
 ?>
 
 <html>
