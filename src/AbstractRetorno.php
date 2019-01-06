@@ -98,4 +98,9 @@ abstract class AbstractRetorno
 
         return $this->children;
     }
+
+    public function getRegistros()
+    {
+        return $this->children;
+    }
 }

@@ -14,7 +14,7 @@ try {
     echo $e->getMessage();
 }
 
-dd($arquivo);
+dd($arquivo->getRegistros());
 ?>
 
 <html>
