@@ -6,11 +6,32 @@ use Exception;
 
 abstract class AbstractRetorno
 {
-    private       $children     = []; // armazena os registros filhos da classe remessa
-    public static $banco; // sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
-    public static $layout;// recebera o nome do layout na instacia?ao
-    public static $loteCounter  = 1; // contador de lotes
-    public static $lines; // mantem os dados passados em $data na instanciação
+    /**
+     * Armazena os registros filhos da classe remessa
+     * @var array
+     */
+    private $children = [];
+    /**
+     * Sera atribuido o nome do banco que tambem é o nome da pasta que contem os layouts
+     * @var string
+     */
+    public static $banco;
+    /**
+     * Recebera o nome do layout na instaciação
+     * @var string
+     */
+    public static $layout;
+    /**
+     * Contador de lotes
+     * @var int
+     */
+    public static $loteCounter = 1;
+    /**
+     * Mantém os dados passados em $data na instanciação
+     * @var array
+     */
+    public static $lines;
+
     public static $linesCounter = 0;
 
     /**
@@ -51,10 +72,10 @@ abstract class AbstractRetorno
         self::$layout = "L" . $layout_versao;
         self::$lines  = $lines;
 
-        $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
-        $this->children['registro0'] = (new $class($lines[0]))->toArray();
-
         if ($length == 240 || $length == 241) {
+
+            $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
+            $this->children['registro0'] = (new $class($lines[0]))->toArray();
 
             for ($i = 1; $i < count($lines); $i++) {
 
@@ -90,11 +111,24 @@ abstract class AbstractRetorno
                     self::$loteCounter++;
                 }
             }
-        } elseif ($length == 400 || $length == 401) {
-        }
 
-        $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
-        $this->children['registro9'] = (new $class($lines[count($lines) - 2]))->toArray();
+            $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
+            $this->children['registro9'] = (new $class($lines[count($lines) - 2]))->toArray();
+
+        } elseif ($length == 400 || $length == 401) {
+
+            $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro0';
+            $this->children['registro0'] = (new $class($lines[0]))->toArray();
+
+            $class = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro1';
+            for ($i = 1; $i < count($lines) - 2; $i++) {
+
+                $this->children['registro1'][] = (new $class($lines[$i]))->toArray();
+            }
+
+            $class                       = 'Cnab\resources\\' . self::$banco . '\retorno\\' . self::$layout . '\Registro9';
+            $this->children['registro9'] = (new $class($lines[count($lines) - 2]))->toArray();
+        }
 
         return $this->children;
     }
