@@ -7,51 +7,108 @@ use Cnab\resources\generico\retorno\L400\Generico9;
 class Registro9 extends Generico9
 {
     protected $meta = [
-        'codigo_banco'  => [// 01.5
-            'tamanho'  => 3,
-            'default'  => '104',
-            'tipo'     => 'int',
-            'required' => true,
-        ],
-        'codigo_lote'   => [// 02.5
-            'tamanho'  => 4,
-            'default'  => 9999,
-            'tipo'     => 'int',
-            'required' => true,
-        ],
-        'tipo_registro' => [// 03.5
+        'tipo_registro'              => [
             'tamanho'  => 1,
-            'default'  => '9',
-            'tipo'     => 'int',
-            'required' => true,
-        ],
-        'filler1'       => [// 04.5
-            'tamanho'  => 9,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'qtd_lotes'     => [// 05.5
-            'tamanho'  => 6,
-            'default'  => '1',
-            'tipo'     => 'int',
-            'required' => true,
-        ],
-        'qtd_registros' => [// 06.5
-            'tamanho'  => 6,
-            'default'  => '0',
-            'tipo'     => 'int',
-            'required' => true,
-        ],
-        'filler2'       => [// 12.5
-            'tamanho'  => 6,
+        'codigo_retorno'             => [
+            'tamanho'  => 1,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'filler3'       => [// 13.5
-            'tamanho'  => 105,
+        'codigo_servico'             => [
+            'tamanho'  => 2,
             'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'codigo_banco'               => [
+            'tamanho'  => 3,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'brancos'                    => [
+            'tamanho'  => 10,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'qtd_titulos'                => [
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'valor_total'                => [
+            'tamanho'  => 11,
+            'default'  => ' ',
+            'tipo'     => 'decimal',
+            'precision' => 2,
+            'required' => true,
+        ],
+        'aviso_bancario'             => [
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'brancos1'                   => [
+            'tamanho'  => 90,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'qtd_titulos_direta'         => [
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'valor_total_direta'         => [
+            'tamanho'  => 11,
+            'default'  => ' ',
+            'tipo'     => 'decimal',
+            'precision' => 2,
+            'required' => true,
+        ],
+        'aviso_bancario2'            => [
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'controle_arquivo'           => [
+            'tamanho'  => 5,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'qtd_detalhes'               => [
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'valor_total_informado'      => [
+            'tamanho'  => 11,
+            'default'  => '',
+            'tipo'     => 'decimal',
+            'precision' => 2,
+            'required' => true,
+        ],
+        'brancos3'                   => [
+            'tamanho'  => 160,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'numero_sequencial_registro' => [
+            'tamanho'  => 6,
+            'default'  => '',
             'tipo'     => 'alfa',
             'required' => true,
         ],

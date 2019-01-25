@@ -10,100 +10,124 @@ class Registro0 extends Generico0
     public $trailler;
 
     protected $meta = [
-        'tipo_registro'             => [
+        'tipo_registro'              => [
             'tamanho'  => 1,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'operacao'                  => [
+        'operacao'                   => [
             'tamanho'  => 1,
             'default'  => '2',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'literal_remessa'           => [
+        'literal_remessa'            => [
             'tamanho'  => 7,
             'default'  => 'RETORNO',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'tipo_servico'              => [
+        'tipo_servico'               => [
             'tamanho'  => 2,
             'default'  => '01',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'literal_servico'           => [
+        'literal_servico'            => [
             'tamanho'  => 15,
             'default'  => 'COBRANCA',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'agencia'                   => [
+        'agencia'                    => [
             'tamanho'  => 4,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'filler1'                   => [
+        'filler1'                    => [
             'tamanho'  => 2,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'conta'                     => [
+        'conta'                      => [
             'tamanho'  => 5,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'conta_dv'                  => [
+        'conta_dv'                   => [
             'tamanho'  => 1,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'filler2'                   => [
+        'filler2'                    => [
             'tamanho'  => 8,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'nome_empresa'              => [
+        'nome_empresa'               => [
             'tamanho'  => 30,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'codigo_banco'              => [
+        'codigo_banco'               => [
             'tamanho'  => 3,
             'default'  => '341',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
-        'nome_banco'                => [
+        'nome_banco'                 => [
             'tamanho'  => 15,
             'default'  => 'BANCO ITAU SA',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'data_gravacao'             => [
+        'data_gravacao'              => [
             'tamanho'  => 6,
-            'default'  => '',// nao informar a data na instanciaÃ§Ã£o - gerada dinamicamente
+            'default'  => '',
             'tipo'     => 'date',
             'required' => true,
         ],
-        'filler3'                   => [
-            'tamanho'  => 294,
+        'densidade'                  => [
+            'tamanho'  => 5,
+            'default'  => '',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'unidade_densidade'          => [
+            'tamanho'  => 3,
+            'default'  => '',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'numero_sequencial_arquivo'  => [
+            'tamanho'  => 5,
+            'default'  => '',
+            'tipo'     => 'int',
+            'required' => true,
+        ],
+        'data_credito'               => [
+            'tamanho'  => 6,
+            'default'  => '',
+            'tipo'     => 'date',
+            'required' => true,
+        ],
+        'filler3'                    => [
+            'tamanho'  => 275,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'numero_sequencial_arquivo' => [
+        'numero_sequencial_registro' => [
             'tamanho'  => 6,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
     ];
