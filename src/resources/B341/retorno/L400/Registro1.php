@@ -109,7 +109,7 @@ class Registro1 extends Generico1
         'codigo_movimento'         => [// codigo da ocorrencia no manual itau
             'tamanho'  => 2,
             'default'  => '01', // entrada de titulo
-            'tipo'     => 'alfa',
+            'tipo'     => 'int',
             'required' => true,
         ],
         'data_ocorrencia'          => [// codigo da ocorrencia no manual itau
