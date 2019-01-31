@@ -71,7 +71,7 @@ class Registro3U extends Generico3
             'precision' => 2,
             'required'  => true,
         ],
-        'vlr_IOF'              => [ //11.9U
+        'vlr_iof'              => [ //11.9U
             'tamanho'   => 13,
             'default'   => '',
             'tipo'      => 'decimal',
