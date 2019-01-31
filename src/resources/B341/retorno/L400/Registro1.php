@@ -8,48 +8,48 @@ use Cnab\AbstractRetorno;
 class Registro1 extends Generico1
 {
     public $trailler;
-    
+
     protected $meta = [
         'tipo_registro'            => [
             'tamanho'  => 1,
             'default'  => '1',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'tipo_inscricao_empresa'   => [
             'tamanho'  => 2,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'numero_inscricao_empresa' => [
             'tamanho'  => 14,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'agencia'                  => [
             'tamanho'  => 4,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'filler1'                  => [
             'tamanho'  => 2,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'conta'                    => [
             'tamanho'  => 5,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'conta_dv'                 => [
             'tamanho'  => 1,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'filler2'                  => [
@@ -67,7 +67,7 @@ class Registro1 extends Generico1
         'nosso_numero'             => [
             'tamanho'  => 8,
             'default'  => '',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'filler3'                  => [
@@ -79,11 +79,17 @@ class Registro1 extends Generico1
         'carteira'                 => [// 13.3P
             'tamanho'  => 3,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'filler34'                 => [
-            'tamanho'  => 9,
+            'tamanho'  => 8,
+            'default'  => ' ',
+            'tipo'     => 'alfa',
+            'required' => true,
+        ],
+        'nosso_numero_dv'          => [
+            'tamanho'  => 1,
             'default'  => ' ',
             'tipo'     => 'alfa',
             'required' => true,
@@ -146,25 +152,25 @@ class Registro1 extends Generico1
         'codigo_banco'             => [
             'tamanho'  => 3,
             'default'  => '341',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'agencia_cobradora'        => [// 22.3P
             'tamanho'  => 4,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'agencia_cobradora_dv'     => [// 22.3P
             'tamanho'  => 1,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'especie_titulo'           => [// 24.3P
             'tamanho'  => 2,
             'default'  => '2',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'vlr_tarifas'              => [// 25.3P
@@ -255,7 +261,7 @@ class Registro1 extends Generico1
         'filler46'                 => [// 29.3P
             'tamanho'  => 13,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'nome_pagador'             => [// 10.3Q
@@ -291,7 +297,7 @@ class Registro1 extends Generico1
         'numero_registro'          => [// 4.3R
             'tamanho'  => 6,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
     ];
