@@ -2,8 +2,6 @@
 
 namespace Cnab;
 
-use Exception;
-
 abstract class AbstractRetorno
 {
     /**
@@ -37,7 +35,7 @@ abstract class AbstractRetorno
     /**
      * AbstractRetorno constructor.
      * @param $conteudo
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct($conteudo)
     {
@@ -45,7 +43,7 @@ abstract class AbstractRetorno
 
         $lines = explode("\n", $conteudo);
         if (count($lines) < 2)
-            throw new Exception("Invalid file.");
+            throw new \Exception("Invalid file.");
 
         $length        = strlen($lines[0]);
         $layout_versao = null;
@@ -61,11 +59,11 @@ abstract class AbstractRetorno
             $codigo_tipo   = substr($lines[0], 1, 1);
 
         } else {
-            throw new Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
+            throw new \Exception("Não foi possivel detectar o tipo do arquivo, provavelmente esta corrompido");
         }
 
         if ($codigo_tipo == '1') {
-            throw new Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
+            throw new \Exception("Esse é um arqvuio de remessa, nao pode ser processado aqui.");
         }
 
         self::$banco  = "B" . $codigo_banco;
