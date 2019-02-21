@@ -196,7 +196,7 @@ class Registro3T extends Generico3
             'tipo'     => 'alfa',
             'required' => true,
         ],
-        'vlr_tarifa'          => [ //27.3T
+        'vlr_tarifas'          => [ //27.3T
             'tamanho'   => 13,
             'default'   => '',
             'tipo'      => 'decimal',
@@ -206,7 +206,7 @@ class Registro3T extends Generico3
         'codigo_ocorrencia'   => [ //28.3T
             'tamanho'  => 10,
             'default'  => '0',
-            'tipo'     => 'int',
+            'tipo'     => 'alfa',
             'required' => true,
         ],
         'filler7'             => [ //29.3T
