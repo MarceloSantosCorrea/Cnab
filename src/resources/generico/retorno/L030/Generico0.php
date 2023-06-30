@@ -24,6 +24,7 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
+
 use Cnab\AbstractRegistroRetorno;
 
 class Generico0 extends AbstractRegistroRetorno

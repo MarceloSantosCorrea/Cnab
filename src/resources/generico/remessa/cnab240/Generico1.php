@@ -1,4 +1,5 @@
 <?php
+
 namespace Cnab\resources\generico\remessa\cnab240;
 
 use Cnab\AbstractRegistroRemessa;
@@ -8,11 +9,6 @@ use Exception;
 class Generico1 extends AbstractRegistroRemessa
 {
     protected $counter = 0;
-
-    protected function set_codigo_lote($value)
-    {
-        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
-    }
 
     public function set_tipo_servico($value)
     {
@@ -25,6 +21,63 @@ class Generico1 extends AbstractRegistroRemessa
         } else {
             throw new Exception("O tipo de servico deve ser 1 ou S para Registrada ou 2 ou N para Sem Registro, o valor informado foi:" . $value);
         }
+    }
+
+    public function get_counter()
+    {
+        $this->counter++;
+
+        return $this->counter;
+    }
+
+    public function inserirDetalhe($data)
+    {
+        $class = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro3P';
+        $this->children[] = new $class($data);
+    }
+
+    public function getText()
+    {
+        $retorno = '';
+        $dataReg5 = [];
+        $dataReg5['qtd_titulos_simples'] = '0';
+        $dataReg5['qtd_titulos_caucionada'] = '0';
+        $dataReg5['qtd_titulos_descontada'] = '0';
+        $dataReg5['vrl_titulos_simples'] = '0.00';
+        $dataReg5['vlr_titulos_caucionada'] = '0.00';
+        $dataReg5['vlr_titulos_descontada'] = '0.00';
+
+        foreach ($this->meta as $key => $value) {
+            $retorno .= $this->$key;
+        }
+        AbstractRemessa::$retorno[] = $retorno;
+        if ($this->children) {
+            // percorre todos objetos filhos
+            foreach ($this->children as $child) {
+                if ($child->codigo_carteira == 1) {
+                    $dataReg5['qtd_titulos_simples']++;
+                    $dataReg5['vrl_titulos_simples'] += $child->getUnformated('valor');
+                }
+                if ($child->codigo_carteira == 3) {
+                    $dataReg5['qtd_titulos_caucionada']++;
+                    $dataReg5['vlr_titulos_caucionada'] += $child->getUnformated('valor');
+
+                }
+                if ($child->codigo_carteira == 4) {
+                    $dataReg5['qtd_titulos_descontada']++;
+                    $dataReg5['vlr_titulos_descontada'] += $child->getUnformated('valor');
+                }
+                $child->getText();
+            }
+            $class = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro5';
+            $registro5 = new $class($dataReg5);
+            $registro5->getText();
+        }
+    }
+
+    protected function set_codigo_lote($value)
+    {
+        $this->data['codigo_lote'] = AbstractRemessa::$loteCounter;
     }
 
     protected function set_tipo_inscricao($value)
@@ -75,57 +128,5 @@ class Generico1 extends AbstractRegistroRemessa
     protected function set_data_gravacao($value)
     {
         $this->data['data_gravacao'] = date('Y-m-d');
-    }
-
-    public function get_counter()
-    {
-        $this->counter++;
-
-        return $this->counter;
-    }
-
-    public function inserirDetalhe($data)
-    {
-        $class            = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro3P';
-        $this->children[] = new $class($data);
-    }
-
-    public function getText()
-    {
-        $retorno                            = '';
-        $dataReg5                           = [];
-        $dataReg5['qtd_titulos_simples']    = '0';
-        $dataReg5['qtd_titulos_caucionada'] = '0';
-        $dataReg5['qtd_titulos_descontada'] = '0';
-        $dataReg5['vrl_titulos_simples']    = '0.00';
-        $dataReg5['vlr_titulos_caucionada'] = '0.00';
-        $dataReg5['vlr_titulos_descontada'] = '0.00';
-
-        foreach ($this->meta as $key => $value) {
-            $retorno .= $this->$key;
-        }
-        AbstractRemessa::$retorno[] = $retorno;
-        if ($this->children) {
-            // percorre todos objetos filhos
-            foreach ($this->children as $child) {
-                if ($child->codigo_carteira == 1) {
-                    $dataReg5['qtd_titulos_simples']++;
-                    $dataReg5['vrl_titulos_simples'] += $child->getUnformated('valor');
-                }
-                if ($child->codigo_carteira == 3) {
-                    $dataReg5['qtd_titulos_caucionada']++;
-                    $dataReg5['vlr_titulos_caucionada'] += $child->getUnformated('valor');
-
-                }
-                if ($child->codigo_carteira == 4) {
-                    $dataReg5['qtd_titulos_descontada']++;
-                    $dataReg5['vlr_titulos_descontada'] += $child->getUnformated('valor');
-                }
-                $child->getText();
-            }
-            $class     = 'Cnab\resources\\' . AbstractRemessa::$banco . '\remessa\\' . AbstractRemessa::$layout . '\Registro5';
-            $registro5 = new $class($dataReg5);
-            $registro5->getText();
-        }
     }
 }

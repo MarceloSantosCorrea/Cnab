@@ -24,8 +24,8 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L040;
+
 use Cnab\AbstractRegistroRetorno;
-use Exception;
 
 class Generico0 extends AbstractRegistroRetorno
 {

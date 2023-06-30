@@ -24,6 +24,7 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\generico\retorno\L030;
+
 use Cnab\AbstractRegistroRemessa;
 use Cnab\AbstractRemessa;
 use Cnab\Especie;
@@ -39,7 +40,7 @@ class Generico3 extends AbstractRegistroRemessa
 
     protected function set_numero_registro($value)
     {
-        $lote                          = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
+        $lote = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['numero_registro'] = $lote->get_counter();
     }
 
@@ -75,7 +76,7 @@ class Generico3 extends AbstractRegistroRemessa
 
     protected function set_com_registro($value)
     {
-        $lote                       = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
+        $lote = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['com_registro'] = $lote->tipo_servico;
     }
 
@@ -114,51 +115,51 @@ class Generico3 extends AbstractRegistroRemessa
         if (is_int($value)) {
             $this->data['especie_titulo'] = $value;
         } else {
-            $especie                      = new Especie($this->data['codigo_banco']);
+            $especie = new Especie($this->data['codigo_banco']);
             $this->data['especie_titulo'] = $especie->getCodigo($value);
         }
     }
 
     protected function set_cep_sufixo($value)
     {
-        $cep                       = $this->data['cep_pagador'];
+        $cep = $this->data['cep_pagador'];
         $this->data['cep_pagador'] = explode('-', $cep)[0];
-        $this->data['cep_sufixo']  = explode('-', $cep)[1];
+        $this->data['cep_sufixo'] = explode('-', $cep)[1];
     }
 
     protected function set_mensagem_3($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_3'] = count($mensagem) >= 1 ? $mensagem[0] : ' ';
     }
 
     protected function set_mensagem_4($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_4'] = count($mensagem) >= 2 ? $mensagem[1] : ' ';
     }
 
     protected function set_mensagem_5($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_5'] = count($mensagem) >= 3 ? $mensagem[2] : ' ';
     }
 
     protected function set_mensagem_6($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_6'] = count($mensagem) >= 4 ? $mensagem[3] : ' ';
     }
 
     protected function set_mensagem_7($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_7'] = count($mensagem) >= 5 ? $mensagem[4] : ' ';
     }
 
     protected function set_mensagem_8($value)
     {
-        $mensagem                 = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
+        $mensagem = (isset($this->entryData['mensagem'])) ? explode(PHP_EOL, $this->entryData['mensagem']) : [];
         $this->data['mensagem_8'] = count($mensagem) >= 6 ? $mensagem[5] : ' ';
     }
 }

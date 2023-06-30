@@ -23,9 +23,10 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+
 namespace Cnab\samples;
 
-use \Cnab\Retorno;
+use Cnab\Retorno;
 
 include("../../autoloader.php");
 $fileContent = file_get_contents("teste.RET");
@@ -35,10 +36,10 @@ $arquivo = new Retorno($fileContent);
 $registros = $arquivo->getRegistros();
 foreach ($registros as $registro) {
     if ($registro->codigo_movimento == 6) {
-        $nossoNumero   = $registro->nosso_numero;
+        $nossoNumero = $registro->nosso_numero;
         $valorRecebido = $registro->vlr_pago;
         $dataPagamento = $registro->data_ocorrencia;
-        $carteira      = $registro->carteira;
+        $carteira = $registro->carteira;
         echo $dataPagamento;
         // você ja pode dar baixa
     }

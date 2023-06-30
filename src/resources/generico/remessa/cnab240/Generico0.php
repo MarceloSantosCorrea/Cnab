@@ -2,12 +2,17 @@
 
 namespace Cnab\resources\generico\remessa\cnab240;
 
-use \Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRegistroRemessa;
 use Exception;
 
 class Generico0 extends AbstractRegistroRemessa
 {
     protected $counter;
+
+    public function get_numero_registro()
+    {
+        return null;
+    }
 
     protected function set_situacao_arquivo($value)
     {
@@ -36,11 +41,6 @@ class Generico0 extends AbstractRegistroRemessa
     protected function set_numero_inscricao($value)
     {
         $this->data['numero_inscricao'] = str_ireplace(['.', '/', '-'], [''], $value);
-    }
-
-    public function get_numero_registro()
-    {
-        return null;
     }
 
 }

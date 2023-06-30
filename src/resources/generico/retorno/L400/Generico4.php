@@ -23,12 +23,10 @@
 * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
+
 namespace Cnab\resources\generico\retorno\L400;
 
 use Cnab\AbstractRegistroRetorno;
-use Cnab\AbstractRemessa;
-use Cnab\Especie;
-use Exception;
 
 class Generico4 extends AbstractRegistroRetorno
 {

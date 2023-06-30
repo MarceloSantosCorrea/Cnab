@@ -11,7 +11,7 @@ class Generico1 extends AbstractRegistroRemessa
 {
     protected function set_numero_registro($value)
     {
-        $lote                          = AbstractRemessa::getLote(0);
+        $lote = AbstractRemessa::getLote(0);
         $this->data['numero_registro'] = $lote->get_counter();
     }
 
@@ -79,8 +79,8 @@ class Generico1 extends AbstractRegistroRemessa
 
     protected function set_cep_pagador($value)
     {
-        $cep                       = $value;
-        $cep_array                 = str_ireplace('-', '', $cep);
+        $cep = $value;
+        $cep_array = str_ireplace('-', '', $cep);
         $this->data['cep_pagador'] = $cep_array;
     }
 
@@ -89,7 +89,7 @@ class Generico1 extends AbstractRegistroRemessa
         if (is_int($value)) {
             $this->data['especie_titulo'] = $value;
         } else {
-            $especie                      = new Especie($this->data['codigo_banco']);
+            $especie = new Especie($this->data['codigo_banco']);
             $this->data['especie_titulo'] = $especie->getCodigo($value);
         }
     }

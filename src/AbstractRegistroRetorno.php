@@ -2,6 +2,8 @@
 
 namespace Cnab;
 
+use DateTime;
+
 abstract class AbstractRegistroRetorno
 {
     protected $data; // array contendo os dados do objeto
@@ -22,7 +24,7 @@ abstract class AbstractRegistroRetorno
                 substr($linhaTxt, $posicao, $value['tamanho']);
 
             $this->$key = $valor;
-            $posicao    += (isset($value['precision'])) ? $value['tamanho'] + $value['precision'] : $value['tamanho'];
+            $posicao += (isset($value['precision'])) ? $value['tamanho'] + $value['precision'] : $value['tamanho'];
         }
     }
 
@@ -30,57 +32,7 @@ abstract class AbstractRegistroRetorno
     * método __set()
     * executado sempre que uma propriedade for atribuída.
     */
-    public function __set($prop, $value)
-    {
-        // verifica se existe método set_<propriedade>
-        if (method_exists($this, 'set_' . $prop)) {
-            // executa o método set_<propriedade>
-            call_user_func([$this, 'set_' . $prop], $value);
-        } else {
-            $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
-            switch ($metaData['tipo']) {
-                case 'decimal':
-                    $inteiro           = abs(substr($value, 0, $metaData['tamanho']));
-                    $decimal           = abs(substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
-                    $retorno           = ($inteiro + $decimal);
-                    $this->data[$prop] = $retorno;
-                    break;
-                case 'int':
-                    $retorno           = abs((int)$value);
-                    $this->data[$prop] = $retorno;
-                    break;
-                case 'alfa':
-                    $retorno           = trim($value);
-                    $this->data[$prop] = $retorno;
-                    break;
-                case 'date':
 
-                    if ($value == '00000000')
-                        $this->data[$prop] = '00000000';
-                    else
-                        if ($metaData['tamanho'] == 6) {
-                            $data              = \DateTime::createFromFormat('dmy', sprintf('%06d', $value));
-                            $retorno           = $data->format('Y-m-d');
-                            $this->data[$prop] = $retorno;
-
-                        } elseif ($metaData['tamanho'] == 8) {
-                            $data              = \DateTime::createFromFormat('dmY', sprintf('%08d', $value));
-                            $retorno           = $data->format("Y-m-d");
-                            $this->data[$prop] = $retorno;
-                        }
-
-                    break;
-                default:
-                    $this->data[$prop] = $value;
-                    break;
-            }
-        }
-    }
-
-    /*
-    * método __get()
-    * executado sempre que uma propriedade for requerida
-    */
     public function __get($prop)
     {
         // verifica se existe método get_<propriedade>
@@ -93,9 +45,62 @@ abstract class AbstractRegistroRetorno
     }
 
     /*
+    * método __get()
+    * executado sempre que uma propriedade for requerida
+    */
+
+    public function __set($prop, $value)
+    {
+        // verifica se existe método set_<propriedade>
+        if (method_exists($this, 'set_' . $prop)) {
+            // executa o método set_<propriedade>
+            call_user_func([$this, 'set_' . $prop], $value);
+        } else {
+            $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
+            switch ($metaData['tipo']) {
+                case 'decimal':
+                    $inteiro = abs(substr($value, 0, $metaData['tamanho']));
+                    $decimal = abs(substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
+                    $retorno = ($inteiro + $decimal);
+                    $this->data[$prop] = $retorno;
+                    break;
+                case 'int':
+                    $retorno = abs((int)$value);
+                    $this->data[$prop] = $retorno;
+                    break;
+                case 'alfa':
+                    $retorno = trim($value);
+                    $this->data[$prop] = $retorno;
+                    break;
+                case 'date':
+
+                    if ($value == '00000000')
+                        $this->data[$prop] = '00000000';
+                    else
+                        if ($metaData['tamanho'] == 6) {
+                            $data = DateTime::createFromFormat('dmy', sprintf('%06d', $value));
+                            $retorno = $data->format('Y-m-d');
+                            $this->data[$prop] = $retorno;
+
+                        } elseif ($metaData['tamanho'] == 8) {
+                            $data = DateTime::createFromFormat('dmY', sprintf('%08d', $value));
+                            $retorno = $data->format("Y-m-d");
+                            $this->data[$prop] = $retorno;
+                        }
+
+                    break;
+                default:
+                    $this->data[$prop] = $value;
+                    break;
+            }
+        }
+    }
+
+    /*
     * método ___get()
     * metodo auxiliar para ser chamado para dentro de metodo get personalizado
     */
+
     public function ___get($prop)
     {
         // retorna o valor da propriedade

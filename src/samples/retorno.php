@@ -11,7 +11,7 @@ $fileContent = file_get_contents('src/samples/phpyoiOl5_5a9011f5495133_12170818.
 
 try {
     $arquivo = new Retorno($fileContent);
-} catch (\Exception $e) {
+} catch (Exception $e) {
     echo $e->getMessage();
 }
 dd($arquivo->getRegistros());

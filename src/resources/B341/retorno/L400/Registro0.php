@@ -2,132 +2,132 @@
 
 namespace Cnab\resources\B341\retorno\L400;
 
-use Cnab\resources\generico\retorno\L400\Generico0;
 use Cnab\AbstractRetorno;
+use Cnab\resources\generico\retorno\L400\Generico0;
 
 class Registro0 extends Generico0
 {
     public $trailler;
 
     protected $meta = [
-        'tipo_registro'              => [
-            'tamanho'  => 1,
-            'default'  => '0',
-            'tipo'     => 'alfa',
+        'tipo_registro' => [
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'operacao'                   => [
-            'tamanho'  => 1,
-            'default'  => '2',
-            'tipo'     => 'alfa',
+        'operacao' => [
+            'tamanho' => 1,
+            'default' => '2',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'literal_remessa'            => [
-            'tamanho'  => 7,
-            'default'  => 'RETORNO',
-            'tipo'     => 'alfa',
+        'literal_remessa' => [
+            'tamanho' => 7,
+            'default' => 'RETORNO',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'tipo_servico'               => [
-            'tamanho'  => 2,
-            'default'  => '01',
-            'tipo'     => 'alfa',
+        'tipo_servico' => [
+            'tamanho' => 2,
+            'default' => '01',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'literal_servico'            => [
-            'tamanho'  => 15,
-            'default'  => 'COBRANCA',
-            'tipo'     => 'alfa',
+        'literal_servico' => [
+            'tamanho' => 15,
+            'default' => 'COBRANCA',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'agencia'                    => [
-            'tamanho'  => 4,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'agencia' => [
+            'tamanho' => 4,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'filler1'                    => [
-            'tamanho'  => 2,
-            'default'  => '0',
-            'tipo'     => 'alfa',
+        'filler1' => [
+            'tamanho' => 2,
+            'default' => '0',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'conta'                      => [
-            'tamanho'  => 5,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'conta' => [
+            'tamanho' => 5,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'conta_dv'                   => [
-            'tamanho'  => 1,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'conta_dv' => [
+            'tamanho' => 1,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'filler2'                    => [
-            'tamanho'  => 8,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'filler2' => [
+            'tamanho' => 8,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'nome_empresa'               => [
-            'tamanho'  => 30,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'nome_empresa' => [
+            'tamanho' => 30,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'codigo_banco'               => [
-            'tamanho'  => 3,
-            'default'  => '341',
-            'tipo'     => 'alfa',
+        'codigo_banco' => [
+            'tamanho' => 3,
+            'default' => '341',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'nome_banco'                 => [
-            'tamanho'  => 15,
-            'default'  => 'BANCO ITAU SA',
-            'tipo'     => 'alfa',
+        'nome_banco' => [
+            'tamanho' => 15,
+            'default' => 'BANCO ITAU SA',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'data_gravacao'              => [
-            'tamanho'  => 6,
-            'default'  => '',
-            'tipo'     => 'date',
+        'data_gravacao' => [
+            'tamanho' => 6,
+            'default' => '',
+            'tipo' => 'date',
             'required' => true,
         ],
-        'densidade'                  => [
-            'tamanho'  => 5,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'densidade' => [
+            'tamanho' => 5,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'unidade_densidade'          => [
-            'tamanho'  => 3,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'unidade_densidade' => [
+            'tamanho' => 3,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'numero_sequencial_arquivo'  => [
-            'tamanho'  => 5,
-            'default'  => '',
-            'tipo'     => 'int',
+        'numero_sequencial_arquivo' => [
+            'tamanho' => 5,
+            'default' => '',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'data_credito'               => [
-            'tamanho'  => 6,
-            'default'  => '',
-            'tipo'     => 'date',
+        'data_credito' => [
+            'tamanho' => 6,
+            'default' => '',
+            'tipo' => 'date',
             'required' => true,
         ],
-        'filler3'                    => [
-            'tamanho'  => 275,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'filler3' => [
+            'tamanho' => 275,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
         'numero_sequencial_registro' => [
-            'tamanho'  => 6,
-            'default'  => '',
-            'tipo'     => 'alfa',
+            'tamanho' => 6,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
     ];
@@ -142,7 +142,7 @@ class Registro0 extends Generico0
     public function inserirDetalhe()
     {
         while (AbstractRetorno::$linesCounter < (count(AbstractRetorno::$lines) - 2)) {
-            $class            = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
+            $class = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro1';
             $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
         }
     }

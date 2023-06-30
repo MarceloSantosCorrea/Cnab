@@ -24,26 +24,27 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 namespace Cnab\resources\b756\retorno\L400;
-use Cnab\resources\generico\retorno\L400\Generico9;
+
 use Cnab\Exception;
+use Cnab\resources\generico\retorno\L400\Generico9;
 
 class Registro9 extends Generico9
 {
     protected $meta = [
         'tipo_registro' => [
-            'tamanho'  => 1,
-            'default'  => '9',
-            'tipo'     => 'int',
+            'tamanho' => 1,
+            'default' => '9',
+            'tipo' => 'int',
             'required' => true],
-        'tipo_servico'  => [
-            'tamanho'  => 2,
-            'default'  => '',
-            'tipo'     => 'int',
+        'tipo_servico' => [
+            'tamanho' => 2,
+            'default' => '',
+            'tipo' => 'int',
             'required' => true],
-        'codigo_banco'  => [      //01.5
-            'tamanho'  => 3,
-            'default'  => '756',
-            'tipo'     => 'int',
+        'codigo_banco' => [      //01.5
+            'tamanho' => 3,
+            'default' => '756',
+            'tipo' => 'int',
             'required' => true],
 
     ];

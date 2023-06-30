@@ -31,6 +31,23 @@ abstract class AbstractRegistroRemessa
     * método __set()
     * executado sempre que uma propriedade for atribuída.
     */
+
+    public function __get($prop)
+    {
+        // verifica se existe método get_<propriedade>
+        if (method_exists($this, 'get_' . $prop)) {
+            // executa o método get_<propriedade>
+            return call_user_func([$this, 'get_' . $prop]);
+        } else {
+            return $this->___get($prop);
+        }
+    }
+
+    /*
+    * método __get()
+    * executado sempre que uma propriedade for requerida
+    */
+
     public function __set($prop, $value)
     {
         // verifica se existe método set_<propriedade>
@@ -49,29 +66,15 @@ abstract class AbstractRegistroRemessa
     }
 
     /*
-    * método __get()
-    * executado sempre que uma propriedade for requerida
-    */
-    public function __get($prop)
-    {
-        // verifica se existe método get_<propriedade>
-        if (method_exists($this, 'get_' . $prop)) {
-            // executa o método get_<propriedade>
-            return call_user_func([$this, 'get_' . $prop]);
-        } else {
-            return $this->___get($prop);
-        }
-    }
-
-    /*
     * método ___get()
     * metodo auxiliar para ser chamado para dentro de metodo get personalizado
     */
+
     public function ___get($prop)
     {
         // retorna o valor da propriedade
         if (isset($this->meta[$prop])) {
-            $metaData          = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
+            $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];
             if ($metaData['required'] == true && ($this->data[$prop] == '' || !isset($this->data[$prop]))) {
                 throw new Exception('Campo faltante ou com valor nulo:' . $prop);
@@ -118,18 +121,7 @@ abstract class AbstractRegistroRemessa
     * método getUnformated()
     * busca o valor de dentro do campo dentro do objeto de forma simples sem formata??o de valor por exemplo
     */
-    public function getUnformated($prop)
-    {
-        // retorna o valor da propriedade
-        if (isset($this->data[$prop])) {
-            return $this->data[$prop];
-        }
-    }
 
-    /* método prepareText()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
-    * recebe um texto e prepara para inserir no arquivo de texto
-    */
     private function prepareText($text, $remove = null)
     {
         $result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));
@@ -139,11 +131,11 @@ abstract class AbstractRegistroRemessa
         return $result;
     }
 
-    /*
-    * método removeAccents()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
+    /* método prepareText()
+    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
     * recebe um texto e prepara para inserir no arquivo de texto
     */
+
     private function removeAccents($string)
     {
         return preg_replace(
@@ -169,9 +161,10 @@ abstract class AbstractRegistroRemessa
 
     /*
     * método removeAccents()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
+    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
     * recebe um texto e prepara para inserir no arquivo de texto
     */
+
     private function isUtf8($string)
     {
         return preg_match('%^(?:
@@ -189,10 +182,25 @@ abstract class AbstractRegistroRemessa
     }
 
     /*
+    * método removeAccents()
+    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
+    * recebe um texto e prepara para inserir no arquivo de texto
+    */
+
+    public function getUnformated($prop)
+    {
+        // retorna o valor da propriedade
+        if (isset($this->data[$prop])) {
+            return $this->data[$prop];
+        }
+    }
+
+    /*
     * método getText()
     * metodo magico que trabalha recursivamente nos filhos e netos desse objeto 
     * prepara as linhas para serem exportadas para txt
     */
+
     public function getText()
     {
         $retorno = '';

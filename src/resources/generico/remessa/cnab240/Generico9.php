@@ -15,7 +15,7 @@ class Generico9 extends AbstractRegistroRemessa
 
     protected function set_qtd_registros($value)
     {
-        $lote                        = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
+        $lote = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['qtd_registros'] = $lote->get_counter() + 2;
     }
 }

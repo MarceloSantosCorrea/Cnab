@@ -1,4 +1,5 @@
 <?php
+
 namespace Cnab\resources\generico\remessa\cnab240;
 
 use Cnab\AbstractRegistroRemessa;
@@ -14,7 +15,7 @@ class Generico5 extends AbstractRegistroRemessa
 
     protected function set_qtd_registros($value)
     {
-        $lote                        = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
+        $lote = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
         $this->data['qtd_registros'] = $lote->get_counter() + 1;
     }
 }
