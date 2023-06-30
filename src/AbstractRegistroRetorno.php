@@ -46,7 +46,7 @@ abstract class AbstractRegistroRetorno
                     $this->data[$prop] = $retorno;
                     break;
                 case 'int':
-                    $retorno           = abs($value);
+                    $retorno           = abs((int)$value);
                     $this->data[$prop] = $retorno;
                     break;
                 case 'alfa':
