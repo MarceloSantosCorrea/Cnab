@@ -144,7 +144,7 @@ abstract class AbstractRegistroRemessa
         }
     }
 
-    public function getText(): void
+    public function getText()
     {
         $retorno = '';
         foreach ($this->meta as $key => $value) {
