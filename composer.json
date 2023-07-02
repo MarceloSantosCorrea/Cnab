@@ -7,13 +7,21 @@
       "email": "marcelocorrea229@gmail.com"
     }
   ],
-  "require": {},
   "autoload": {
     "psr-4": {
       "Cnab\\": "src/"
     }
   },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
   "require-dev": {
-    "symfony/var-dumper": "^4.1"
+    "symfony/var-dumper": "^6.3",
+    "pestphp/pest": "^2.8"
+  },
+  "scripts": {
+    "test": "./vendor/bin/pest"
   }
 }

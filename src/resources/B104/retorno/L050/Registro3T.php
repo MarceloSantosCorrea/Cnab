@@ -197,17 +197,20 @@ class Registro3T extends Generico3
         AbstractRetorno::$linesCounter++;
         $class = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3U';
         $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-        if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 14, 1) == "Y") {
-            if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "50") {
-                //RetornoAbstract::$linesCounter++;
-                //$class = 'Cnab\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
-                //$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
-            } elseif (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "08") {
-                AbstractRetorno::$linesCounter++;
-                $class = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3Y08';
-                $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
-            }
-        }
+
+//        if (!is_null(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1])) {
+//            if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 14, 1) == "Y") {
+//                if (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "50") {
+//                    //RetornoAbstract::$linesCounter++;
+//                    //$class = 'Cnab\resources\\'.RetornoAbstract::$banco.'\retorno\\'.RetornoAbstract::$layout.'\Registro3Y50';
+//                    //$this->children[] = new $class(RetornoAbstract::$lines[RetornoAbstract::$linesCounter]);
+//                } elseif (substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter + 1], 18, 2) == "08") {
+//                    AbstractRetorno::$linesCounter++;
+//                    $class = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3Y08';
+//                    $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);
+//                }
+//            }
+//        }
     }
 
     public function get_data_ocorrencia()
