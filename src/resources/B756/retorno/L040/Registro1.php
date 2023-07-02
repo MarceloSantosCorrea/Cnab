@@ -166,7 +166,7 @@ class Registro1 extends Generico1
     */
     public function inserirDetalhe()
     {
-        while ($this->data['codigo_lote'] == abs(substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter], 3, 4))) {
+        while ($this->data['codigo_lote'] == abs((int)substr(AbstractRetorno::$lines[AbstractRetorno::$linesCounter], 3, 4))) {
             AbstractRetorno::$linesCounter++;
             $class = 'Cnab\resources\\' . AbstractRetorno::$banco . '\retorno\\' . AbstractRetorno::$layout . '\Registro3T';
             $this->children[] = new $class(AbstractRetorno::$lines[AbstractRetorno::$linesCounter]);

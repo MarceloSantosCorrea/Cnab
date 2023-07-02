@@ -86,7 +86,7 @@ abstract class AbstractRegistroRemessa
                     return str_pad($retorno, $metaData['tamanho'] + $metaData['precision'], '0', STR_PAD_LEFT);
                     break;
                 case 'int':
-                    $retorno = (isset($this->data[$prop])) ? abs($this->data[$prop]) : '';
+                    $retorno = (isset($this->data[$prop])) ? abs((int)$this->data[$prop]) : '';
 
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
                     break;

@@ -59,8 +59,8 @@ abstract class AbstractRegistroRetorno
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             switch ($metaData['tipo']) {
                 case 'decimal':
-                    $inteiro = abs(substr($value, 0, $metaData['tamanho']));
-                    $decimal = abs(substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
+                    $inteiro = abs((int)substr($value, 0, $metaData['tamanho']));
+                    $decimal = abs((int)substr($value, $metaData['tamanho'], $metaData['precision'])) / 100;
                     $retorno = ($inteiro + $decimal);
                     $this->data[$prop] = $retorno;
                     break;
@@ -111,7 +111,7 @@ abstract class AbstractRegistroRetorno
                     return ($this->data[$prop]) ? number_format($this->data[$prop], $metaData['precision'], ',', '.') : '';
                     break;
                 case 'int':
-                    return (isset($this->data[$prop])) ? abs($this->data[$prop]) : '';
+                    return (isset($this->data[$prop])) ? abs((int)$this->data[$prop]) : '';
                     break;
                 case 'alfa':
                     return ($this->data[$prop]) ? $this->prepareText($this->data[$prop]) : '';
