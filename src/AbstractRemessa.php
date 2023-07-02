@@ -15,7 +15,7 @@ abstract class AbstractRemessa
     public function __construct($banco, $layout, $data)
     {
         self::$banco = 'B' . $banco;
-        self::$layout = $layout;
+        self::$layout = ucfirst(str_replace('_', '', $layout));
         $class = '\Cnab\Resources\\' . self::$banco . '\Remessa\\' . self::$layout . '\Registro0';
         self::$entryData = $data;
         self::$hearder = new $class($data);

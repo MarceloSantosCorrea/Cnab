@@ -24,10 +24,10 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Cnab\Resources\B104\Retorno\cnab240_SIGCB;
+namespace Cnab\Resources\B104\Retorno\Cnab240SIGCB;
 
 use Cnab\Exception;
-use Cnab\Resources\Generico\Remessa\cnab240\Generico5;
+use Cnab\Resources\Generico\Remessa\Cnab240\Generico5;
 
 class Registro5 extends Generico5
 {
