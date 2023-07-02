@@ -1,6 +1,6 @@
 <?php
 
-namespace rctnet\Resources\Generico\Remessa\Cnab400;
+namespace Cnab\Resources\Generico\Remessa\Cnab400;
 
 use Cnab\AbstractRegistroRemessa;
 

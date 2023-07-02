@@ -1,11 +1,9 @@
 <?php
 
-namespace rctnet\Resources\Generico\Retorno\L030;
+namespace Cnab\Resources\Generico\Retorno\L030;
 
-use rctnet\RegistroRemAbstract;
+use Cnab\AbstractRegistroRetorno;
 
-class Generico2 extends RegistroRemAbstract
+class Generico2 extends AbstractRegistroRetorno
 {
 }
-
-
