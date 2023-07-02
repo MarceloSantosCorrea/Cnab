@@ -2,6 +2,8 @@
 
 namespace Cnab;
 
+use DateTime;
+
 abstract class AbstractRegistroRetorno
 {
     protected $data;
@@ -57,12 +59,12 @@ abstract class AbstractRegistroRetorno
                         $this->data[$prop] = '00000000';
                     else
                         if ($metaData['tamanho'] == 6) {
-                            $data = \DateTime::createFromFormat('dmy', sprintf('%06d', $value));
+                            $data = DateTime::createFromFormat('dmy', sprintf('%06d', $value));
                             $retorno = $data->format('Y-m-d');
                             $this->data[$prop] = $retorno;
 
                         } elseif ($metaData['tamanho'] == 8) {
-                            $data = \DateTime::createFromFormat('dmY', sprintf('%08d', $value));
+                            $data = DateTime::createFromFormat('dmY', sprintf('%08d', $value));
                             $retorno = $data->format("Y-m-d");
                             $this->data[$prop] = $retorno;
                         }

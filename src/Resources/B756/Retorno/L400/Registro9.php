@@ -24,24 +24,31 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cnab\samples;
+namespace Cnab\Resources\b756\Retorno\L400;
 
-use Cnab\Retorno;
+use Cnab\Exception;
+use Cnab\Resources\generico\Retorno\L400\Generico9;
 
-include("../../autoloader.php");
-$fileContent = file_get_contents("teste.RET");
+class Registro9 extends Generico9
+{
+    protected $meta = [
+        'tipo_registro' => [
+            'tamanho' => 1,
+            'default' => '9',
+            'tipo' => 'int',
+            'required' => true],
+        'tipo_servico' => [
+            'tamanho' => 2,
+            'default' => '',
+            'tipo' => 'int',
+            'required' => true],
+        'codigo_banco' => [      //01.5
+            'tamanho' => 3,
+            'default' => '756',
+            'tipo' => 'int',
+            'required' => true],
 
-$arquivo = new Retorno($fileContent);
-
-$registros = $arquivo->getRegistros();
-foreach ($registros as $registro) {
-    if ($registro->codigo_movimento == 6) {
-        $nossoNumero = $registro->nosso_numero;
-        $valorRecebido = $registro->vlr_pago;
-        $dataPagamento = $registro->data_ocorrencia;
-        $carteira = $registro->carteira;
-        echo $dataPagamento;
-        // você ja pode dar baixa
-    }
-    var_dump($registro);
+    ];
 }
+
+

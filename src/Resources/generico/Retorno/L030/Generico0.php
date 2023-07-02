@@ -1,6 +1,6 @@
 <?php
 /*
-* Cnab - Geração de arquivos de remessa e retorno em PHP
+* Cnab - Gera��o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -24,24 +24,33 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cnab\samples;
+namespace Cnab\Resources\generico\Retorno\L030;
 
-use Cnab\Retorno;
+use Cnab\AbstractRegistroRetorno;
 
-include("../../autoloader.php");
-$fileContent = file_get_contents("teste.RET");
-
-$arquivo = new Retorno($fileContent);
-
-$registros = $arquivo->getRegistros();
-foreach ($registros as $registro) {
-    if ($registro->codigo_movimento == 6) {
-        $nossoNumero = $registro->nosso_numero;
-        $valorRecebido = $registro->vlr_pago;
-        $dataPagamento = $registro->data_ocorrencia;
-        $carteira = $registro->carteira;
-        echo $dataPagamento;
-        // você ja pode dar baixa
+class Generico0 extends AbstractRegistroRetorno
+{
+    protected $counter;
+    /*protected function set_situacao_arquivo($value)
+    {
+        $this->data['situacao_arquivo'] = ($value=='T')?"REMESSA-TESTE":"REMESSA-PRODUCAO";   
     }
-    var_dump($registro);
+    protected function set_data_geracao($value)
+    {
+        $this->data['data_geracao'] =  date('Y-m-d');
+    }
+    protected function set_hora_geracao($value)
+    {
+        $this->data['hora_geracao'] = date('His');
+    }
+    protected function set_numero_inscricao($value)
+    {
+        $this->data['numero_inscricao'] =  str_ireplace(array('.','/','-'),array(''),$value);
+    }
+    public function get_numero_registro(){
+        return null;
+    }
+*/
 }
+
+

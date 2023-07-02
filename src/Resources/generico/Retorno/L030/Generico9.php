@@ -1,6 +1,6 @@
 <?php
 /*
-* Cnab - Geração de arquivos de remessa e retorno em PHP
+* Cnab - Gera��o de arquivos de remessa e retorno em PHP
 *
 * LICENSE: The MIT License (MIT)
 *
@@ -24,24 +24,24 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cnab\samples;
+namespace Cnab\Resources\generico\Retorno\L030;
 
-use Cnab\Retorno;
+use Cnab\AbstractRegistroRemessa;
+use Cnab\AbstractRemessa;
 
-include("../../autoloader.php");
-$fileContent = file_get_contents("teste.RET");
-
-$arquivo = new Retorno($fileContent);
-
-$registros = $arquivo->getRegistros();
-foreach ($registros as $registro) {
-    if ($registro->codigo_movimento == 6) {
-        $nossoNumero = $registro->nosso_numero;
-        $valorRecebido = $registro->vlr_pago;
-        $dataPagamento = $registro->data_ocorrencia;
-        $carteira = $registro->carteira;
-        echo $dataPagamento;
-        // você ja pode dar baixa
+class Generico9 extends AbstractRegistroRemessa
+{
+    protected function set_qtd_lotes($value)
+    {
+        //ArquivoAbstract::$loteCounter++; 
+        $this->data['qtd_lotes'] = AbstractRemessa::$loteCounter;
     }
-    var_dump($registro);
+
+    protected function set_qtd_registros($value)
+    {
+        $lote = AbstractRemessa::getLote(AbstractRemessa::$loteCounter);
+        $this->data['qtd_registros'] = $lote->get_counter() + 1;
+    }
 }
+
+
