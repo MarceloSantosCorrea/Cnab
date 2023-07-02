@@ -4,12 +4,12 @@ namespace Cnab;
 
 class Especie
 {
-    private $res = [];
-    private $itau = [];
-    private $caixa = [];
-    private $bb = [];
-    private $siccob = [];
-    private $banco;
+    private array $res = [];
+    private array $itau = [];
+    private array $caixa = [];
+    private array $bb = [];
+    private array $siccob = [];
+    private array $banco;
 
     public function __construct($banco = null)
     {
@@ -53,7 +53,6 @@ class Especie
         $this->bb[18] = ['abr' => "FAT", 'txt' => 'Fatura'];
         $this->bb[19] = ['abr' => "ND", 'txt' => 'Nota de Débito'];
 
-
         $this->itau[1] = ['abr' => "DM", 'txt' => 'Duplicata Mercantil'];
         $this->itau[2] = ['abr' => "NP", 'txt' => 'Nota Promissória'];
         $this->itau[3] = ['abr' => "NS", 'txt' => 'Nota de Seguro'];
@@ -69,7 +68,6 @@ class Especie
         $this->itau[17] = ['abr' => "CPS", 'txt' => 'Conta de prestação de serviço'];
         $this->itau[18] = ['abr' => "DBP", 'txt' => 'Boleto de Proposta'];
         $this->itau[99] = ['abr' => "DIV", 'txt' => 'Diversos'];
-
 
         $this->siccob[1] = ['abr' => "DM", 'txt' => 'Duplicata Mercantil'];
         $this->siccob[2] = ['abr' => "NP", 'txt' => 'Nota Promissóia'];
@@ -112,7 +110,6 @@ class Especie
         foreach ($this->banco as $key => $especie) {
             if ($especie['abr'] == $abr) {
                 return $key;
-                break;
             }
         }
     }

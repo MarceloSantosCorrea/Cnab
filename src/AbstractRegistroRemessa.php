@@ -27,52 +27,31 @@ abstract class AbstractRegistroRemessa
         }
     }
 
-    /*
-    * método __set()
-    * executado sempre que uma propriedade for atribuída.
-    */
-
     public function __get($prop)
     {
-        // verifica se existe método get_<propriedade>
         if (method_exists($this, 'get_' . $prop)) {
-            // executa o método get_<propriedade>
             return call_user_func([$this, 'get_' . $prop]);
         } else {
             return $this->___get($prop);
         }
     }
 
-    /*
-    * método __get()
-    * executado sempre que uma propriedade for requerida
-    */
-
     public function __set($prop, $value)
     {
-        // verifica se existe método set_<propriedade>
         if (method_exists($this, 'set_' . $prop)) {
-            // executa o método set_<propriedade>
             call_user_func([$this, 'set_' . $prop], $value);
         } else {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             if (($value == "" || $value === NULL) && $metaData[$prop]['default'] != "") {
                 $this->data[$prop] = $metaData[$prop]['default'];
             } else {
-                // atribui o valor da propriedade
                 $this->data[$prop] = $value;
             }
         }
     }
 
-    /*
-    * método ___get()
-    * metodo auxiliar para ser chamado para dentro de metodo get personalizado
-    */
-
     public function ___get($prop)
     {
-        // retorna o valor da propriedade
         if (isset($this->meta[$prop])) {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];
@@ -84,43 +63,31 @@ abstract class AbstractRegistroRemessa
                     $retorno = ($this->data[$prop]) ? number_format($this->data[$prop], $metaData['precision'], '', '') : '';
 
                     return str_pad($retorno, $metaData['tamanho'] + $metaData['precision'], '0', STR_PAD_LEFT);
-                    break;
                 case 'int':
                     $retorno = (isset($this->data[$prop])) ? abs((int)$this->data[$prop]) : '';
 
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
-                    break;
                 case 'alfa':
                     $retorno = ($this->data[$prop]) ? $this->prepareText($this->data[$prop]) : '';
 
                     return str_pad(mb_substr($retorno, 0, $metaData['tamanho'], "UTF-8"), $metaData['tamanho'], ' ', STR_PAD_RIGHT);
-                    break;
                 case 'alfa2':
                     $retorno = ($this->data[$prop]) ? $this->data[$prop] : '';
 
                     return str_pad(mb_substr($retorno, 0, $metaData['tamanho'], "UTF-8"), $metaData['tamanho'], ' ', STR_PAD_RIGHT);
-                    break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 6:
                     $retorno = ($this->data[$prop]) ? date("dmy", strtotime($this->data[$prop])) : '';
 
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
-                    break;
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 8:
                     $retorno = ($this->data[$prop]) ? date("dmY", strtotime($this->data[$prop])) : '';
 
                     return str_pad($retorno, $metaData['tamanho'], '0', STR_PAD_LEFT);
-                    break;
                 default:
                     return null;
-                    break;
             }
         }
     }
-
-    /*
-    * método getUnformated()
-    * busca o valor de dentro do campo dentro do objeto de forma simples sem formata??o de valor por exemplo
-    */
 
     private function prepareText($text, $remove = null)
     {
@@ -130,11 +97,6 @@ abstract class AbstractRegistroRemessa
 
         return $result;
     }
-
-    /* método prepareText()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
-    * recebe um texto e prepara para inserir no arquivo de texto
-    */
 
     private function removeAccents($string)
     {
@@ -159,12 +121,6 @@ abstract class AbstractRegistroRemessa
         );
     }
 
-    /*
-    * método removeAccents()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem altera??o
-    * recebe um texto e prepara para inserir no arquivo de texto
-    */
-
     private function isUtf8($string)
     {
         return preg_match('%^(?:
@@ -181,27 +137,14 @@ abstract class AbstractRegistroRemessa
         );
     }
 
-    /*
-    * método removeAccents()
-    * metodo retirado do projeto andersondanilo/Cnab e usado como esta sem alteração
-    * recebe um texto e prepara para inserir no arquivo de texto
-    */
-
     public function getUnformated($prop)
     {
-        // retorna o valor da propriedade
         if (isset($this->data[$prop])) {
             return $this->data[$prop];
         }
     }
 
-    /*
-    * método getText()
-    * metodo magico que trabalha recursivamente nos filhos e netos desse objeto 
-    * prepara as linhas para serem exportadas para txt
-    */
-
-    public function getText()
+    public function getText(): void
     {
         $retorno = '';
         foreach ($this->meta as $key => $value) {
@@ -209,7 +152,6 @@ abstract class AbstractRegistroRemessa
         }
         AbstractRemessa::$retorno[] = $retorno;
         if ($this->children) {
-            // percorre todos objetos filhos
             foreach ($this->children as $child) {
                 $child->getText();
             }
