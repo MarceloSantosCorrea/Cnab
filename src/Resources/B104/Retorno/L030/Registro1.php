@@ -3,7 +3,7 @@
 namespace Cnab\Resources\B104\Retorno\cnab240_SIGCB;
 
 use Cnab\AbstractRetorno;
-use Cnab\Resources\generico\remessa\cnab240\Generico1;
+use Cnab\Resources\Generico\Remessa\cnab240\Generico1;
 
 class Registro1 extends Generico1
 {

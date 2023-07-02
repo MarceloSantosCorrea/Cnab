@@ -3,7 +3,7 @@
 namespace Cnab\Resources\B104\Retorno\L050;
 
 use Cnab\Exception;
-use Cnab\Resources\generico\Retorno\L050\Generico3;
+use Cnab\Resources\Generico\Retorno\L050\Generico3;
 
 //use Cnab\RetornoAbstract;
 

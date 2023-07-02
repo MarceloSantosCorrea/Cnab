@@ -2,7 +2,7 @@
 
 namespace Cnab\Resources\B104\Retorno\L040;
 
-use Cnab\Resources\generico\Retorno\L040\Generico0;
+use Cnab\Resources\Generico\Retorno\L040\Generico0;
 
 class Registro0 extends Generico0
 {

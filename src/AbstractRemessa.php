@@ -16,7 +16,7 @@ abstract class AbstractRemessa
     {
         self::$banco = 'B' . $banco;
         self::$layout = $layout;
-        $class = '\Cnab\Resources\\' . self::$banco . '\remessa\\' . self::$layout . '\Registro0';
+        $class = '\Cnab\Resources\\' . self::$banco . '\Remessa\\' . self::$layout . '\Registro0';
         self::$entryData = $data;
         self::$hearder = new $class($data);
         self::$children[] = self::$hearder;
@@ -29,11 +29,11 @@ abstract class AbstractRemessa
 
     public function inserirDetalhe($data)
     {
-        $class = '\Cnab\Resources\\' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
+        $class = '\Cnab\Resources\\' . self::$banco . '\Remessa\\' . self::$layout . '\Registro1';
         self::addChild(new $class($data));
     }
 
-    static private function addChild(AbstractRegistroRemessa $child)
+    private static function addChild(AbstractRegistroRemessa $child)
     {
         self::$children[] = $child;
     }
@@ -46,7 +46,7 @@ abstract class AbstractRemessa
     public function addLote(array $data)
     {
         if (strpos(self::$layout, '240')) {
-            $class = '\Cnab\Resources\\' . self::$banco . '\remessa\\' . self::$layout . '\Registro1';
+            $class = '\Cnab\Resources\\' . self::$banco . '\Remessa\\' . self::$layout . '\Registro1';
             $loteData = $data ? $data : AbstractRemessa::$entryData;
             $lote = new $class($loteData);
             self::addChild($lote);
@@ -62,7 +62,7 @@ abstract class AbstractRemessa
         foreach (self::$children as $child) {
             $child->getText();
         }
-        $class = '\Cnab\Resources\\' . self::$banco . '\remessa\\' . self::$layout . '\Registro9';
+        $class = '\Cnab\Resources\\' . self::$banco . '\Remessa\\' . self::$layout . '\Registro9';
         $headerArquivo = new $class(['1' => 1]);
         $headerArquivo->getText();
 

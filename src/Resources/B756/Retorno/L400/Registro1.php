@@ -27,7 +27,7 @@
 namespace Cnab\Resources\B756\Retorno\L400;
 
 use Cnab\AbstractRetorno;
-use Cnab\Resources\generico\Retorno\L400\Generico1;
+use Cnab\Resources\Generico\Retorno\L400\Generico1;
 
 class Registro1 extends Generico1
 {

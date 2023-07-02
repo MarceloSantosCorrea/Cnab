@@ -27,7 +27,7 @@
 namespace Cnab\Resources\B104\Retorno\cnab240_SIGCB;
 
 use Cnab\Exception;
-use Cnab\Resources\generico\Retorno\cnab240\Generico3;
+use Cnab\Resources\Generico\Retorno\cnab240\Generico3;
 
 //use Cnab\RetornoAbstract;
 

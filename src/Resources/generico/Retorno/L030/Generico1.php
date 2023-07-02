@@ -24,7 +24,7 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cnab\Resources\generico\Retorno\L030;
+namespace Cnab\Resources\Generico\Retorno\L030;
 
 use Cnab\AbstractRegistroRetorno;
 use cnabPHP\RetornoAbstract;
@@ -56,7 +56,7 @@ class Generico1 extends AbstractRegistroRetorno
 
     public function inserirDetalhe($data)
     {
-        $class = 'Cnab\Resources\\' . RetornoAbstract::$banco . '\remessa\\' . RetornoAbstract::$layout . '\Registro3P';
+        $class = 'Cnab\Resources\\' . RetornoAbstract::$banco . '\Remessa\\' . RetornoAbstract::$layout . '\Registro3P';
         $this->children[] = new $class($data);
     }
 
@@ -93,7 +93,7 @@ class Generico1 extends AbstractRegistroRetorno
                 }
                 $child->getText();
             }
-            $class = 'Cnab\Resources\\' . RetornoAbstract::$banco . '\remessa\\' . RetornoAbstract::$layout . '\Registro5';
+            $class = 'Cnab\Resources\\' . RetornoAbstract::$banco . '\Remessa\\' . RetornoAbstract::$layout . '\Registro5';
             $registro5 = new $class($dataReg5);
             $registro5->getText();
         }

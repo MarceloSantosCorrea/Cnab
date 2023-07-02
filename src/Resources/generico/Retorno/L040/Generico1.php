@@ -1,6 +1,6 @@
 <?php
 
-namespace Cnab\Resources\generico\Retorno\L040;
+namespace Cnab\Resources\Generico\Retorno\L040;
 
 use Cnab\AbstractRegistroRetorno;
 

@@ -3,7 +3,7 @@
 namespace Cnab\Resources\B104\Retorno\L050;
 
 use Cnab\AbstractRetorno;
-use Cnab\Resources\generico\Retorno\L050\Generico0;
+use Cnab\Resources\Generico\Retorno\L050\Generico0;
 
 class Registro0 extends Generico0
 {

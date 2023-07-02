@@ -1,6 +1,6 @@
 <?php
 
-namespace rctnet\Resources\generico\Retorno\L030;
+namespace rctnet\Resources\Generico\Retorno\L030;
 
 use rctnet\RegistroRemAbstract;
 

@@ -27,7 +27,7 @@
 namespace Cnab\Resources\B341\Retorno\L040;
 
 use Cnab\Exception;
-use Cnab\Resources\generico\Retorno\L040\Generico9;
+use Cnab\Resources\Generico\Retorno\L040\Generico9;
 
 class Registro9 extends Generico9
 {

@@ -24,7 +24,7 @@
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-namespace Cnab\Resources\generico\Retorno\L030;
+namespace Cnab\Resources\Generico\Retorno\L030;
 
 use Cnab\AbstractRegistroRetorno;
 
