@@ -7,273 +7,273 @@ use Cnab\resources\generico\remessa\cnab400\Generico1;
 class Registro1 extends Generico1
 {
     protected $meta = [
-        'tipo_registro'                 => [
-            'tamanho'  => 1,
-            'default'  => '1',
-            'tipo'     => 'int',
+        'tipo_registro' => [
+            'tamanho' => 1,
+            'default' => '1',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'agencia_debito'                => [
-            'tamanho'  => 5,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'agencia_debito' => [
+            'tamanho' => 5,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'digito_agencia_debito'         => [
-            'tamanho'  => 1,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'digito_agencia_debito' => [
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'razao_conta_corrente_pagador'  => [
-            'tamanho'  => 5,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'razao_conta_corrente_pagador' => [
+            'tamanho' => 5,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'conta_corrente_pagador'        => [
-            'tamanho'  => 7,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'conta_corrente_pagador' => [
+            'tamanho' => 7,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
         'digito_conta_corrente_pagador' => [
-            'tamanho'  => 1,
-            'default'  => '0',
-            'tipo'     => 'int',
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'identificacao_empresa'         => [
-            'tamanho'  => 17,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'identificacao_empresa' => [
+            'tamanho' => 17,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'numero_controle_empresa'       => [
-            'tamanho'  => 25,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'numero_controle_empresa' => [
+            'tamanho' => 25,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'cod_banco'                     => [
-            'tamanho'  => 3,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'cod_banco' => [
+            'tamanho' => 3,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'multa'                         => [
-            'tamanho'  => 1,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'multa' => [
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'percentual_multa'              => [
-            'tamanho'  => 4,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'percentual_multa' => [
+            'tamanho' => 4,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'nosso_numero'                  => [
-            'tamanho'  => 11,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'nosso_numero' => [
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'digito_nosso_numero'           => [
-            'tamanho'  => 1,
-            'default'  => '0',
-            'tipo'     => 'alfa',
+        'digito_nosso_numero' => [
+            'tamanho' => 1,
+            'default' => '0',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'desconto_bonificacao'          => [
-            'tamanho'  => 10,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'desconto_bonificacao' => [
+            'tamanho' => 10,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'condicao_emissao'              => [
-            'tamanho'  => 1,
-            'default'  => '2',
-            'tipo'     => 'int',
+        'condicao_emissao' => [
+            'tamanho' => 1,
+            'default' => '2',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'boleto_debito'                 => [
-            'tamanho'  => 1,
-            'default'  => 'N',
-            'tipo'     => 'alfa',
+        'boleto_debito' => [
+            'tamanho' => 1,
+            'default' => 'N',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'filler6'                       => [
-            'tamanho'  => 10,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'filler6' => [
+            'tamanho' => 10,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'identificador_rateio'          => [
-            'tamanho'  => 1,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'identificador_rateio' => [
+            'tamanho' => 1,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'endereco_aviso_debito'         => [     // 2 = ignora
-            'tamanho'  => 1,
-            'default'  => '2',
-            'tipo'     => 'int',
+        'endereco_aviso_debito' => [     // 2 = ignora
+            'tamanho' => 1,
+            'default' => '2',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'filler7'                       => [
-            'tamanho'  => 2,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'filler7' => [
+            'tamanho' => 2,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'identificacao_ocorrencia'      => [
-            'tamanho'  => 2,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'identificacao_ocorrencia' => [
+            'tamanho' => 2,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'numero_documento'              => [
-            'tamanho'  => 10,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'numero_documento' => [
+            'tamanho' => 10,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'data_vencimento'               => [
-            'tamanho'  => 6,
-            'default'  => '',
-            'tipo'     => 'date',
+        'data_vencimento' => [
+            'tamanho' => 6,
+            'default' => '',
+            'tipo' => 'date',
             'required' => true,
         ],
-        'valor'                         => [
-            'tamanho'   => 11,
-            'default'   => '',
-            'tipo'      => 'decimal',
+        'valor' => [
+            'tamanho' => 11,
+            'default' => '',
+            'tipo' => 'decimal',
             'precision' => 2,
-            'required'  => true,
-        ],
-        'codigo_banco'                  => [
-            'tamanho'  => 3,
-            'default'  => '0',
-            'tipo'     => 'int',
             'required' => true,
         ],
-        'agencia_cobradora'             => [
-            'tamanho'  => 5,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'codigo_banco' => [
+            'tamanho' => 3,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'especie_titulo'                => [
-            'tamanho'  => 2,
-            'default'  => '99',
-            'tipo'     => 'int',
+        'agencia_cobradora' => [
+            'tamanho' => 5,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'aceite'                        => [
-            'tamanho'  => 1,
-            'default'  => 'N',
-            'tipo'     => 'alfa',
+        'especie_titulo' => [
+            'tamanho' => 2,
+            'default' => '99',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'data_emissao'                  => [
-            'tamanho'  => 6,
-            'default'  => '',
-            'tipo'     => 'date',
+        'aceite' => [
+            'tamanho' => 1,
+            'default' => 'N',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'cod_instrucao1'                => [
-            'tamanho'  => 2,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'data_emissao' => [
+            'tamanho' => 6,
+            'default' => '',
+            'tipo' => 'date',
             'required' => true,
         ],
-        'cod_instrucao2'                => [
-            'tamanho'  => 2,
-            'default'  => '0',
-            'tipo'     => 'int',
+        'cod_instrucao1' => [
+            'tamanho' => 2,
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'vlr_juros'                     => [
-            'tamanho'   => 11,
-            'default'   => '0',
-            'tipo'      => 'decimal',
+        'cod_instrucao2' => [
+            'tamanho' => 2,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true,
+        ],
+        'vlr_juros' => [
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'decimal',
             'precision' => 2,
-            'required'  => true,
-        ],
-        'data_desconto'                 => [
-            'tamanho'  => 6,
-            'default'  => '0',
-            'tipo'     => 'date',
             'required' => true,
         ],
-        'vlr_desconto'                  => [
-            'tamanho'   => 11,
-            'default'   => '0',
-            'tipo'      => 'decimal',
+        'data_desconto' => [
+            'tamanho' => 6,
+            'default' => '0',
+            'tipo' => 'date',
+            'required' => true,
+        ],
+        'vlr_desconto' => [
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'decimal',
             'precision' => 2,
-            'required'  => true,
+            'required' => true,
         ],
-        'vlr_IOF'                       => [
-            'tamanho'   => 11,
-            'default'   => '0',
-            'tipo'      => 'decimal',
+        'vlr_IOF' => [
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'decimal',
             'precision' => 2,
-            'required'  => true,
+            'required' => true,
         ],
-        'vlr_abatimento'                => [
-            'tamanho'   => 11,
-            'default'   => '0',
-            'tipo'      => 'decimal',
+        'vlr_abatimento' => [
+            'tamanho' => 11,
+            'default' => '0',
+            'tipo' => 'decimal',
             'precision' => 2,
-            'required'  => true,
-        ],
-        'tipo_inscricao'                => [
-            'tamanho'  => 2,
-            'default'  => '',
-            'tipo'     => 'int',
             'required' => true,
         ],
-        'numero_inscricao'              => [
-            'tamanho'  => 14,
-            'default'  => '',
-            'tipo'     => 'int',
+        'tipo_inscricao' => [
+            'tamanho' => 2,
+            'default' => '',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'nome_pagador'                  => [
-            'tamanho'  => 40,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'numero_inscricao' => [
+            'tamanho' => 14,
+            'default' => '',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'endereco_pagador'              => [
-            'tamanho'  => 40,
-            'default'  => '',
-            'tipo'     => 'alfa',
+        'nome_pagador' => [
+            'tamanho' => 40,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        '1_mensagem'                    => [
-            'tamanho'  => 12,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'endereco_pagador' => [
+            'tamanho' => 40,
+            'default' => '',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        'cep_pagador'                   => [
-            'tamanho'  => 8,
-            'default'  => '',
-            'tipo'     => 'int',
+        '1_mensagem' => [
+            'tamanho' => 12,
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
-        '2_mensagem'                    => [
-            'tamanho'  => 60,
-            'default'  => ' ',
-            'tipo'     => 'alfa',
+        'cep_pagador' => [
+            'tamanho' => 8,
+            'default' => '',
+            'tipo' => 'int',
             'required' => true,
         ],
-        'numero_registro'               => [
-            'tamanho'  => 6,
-            'default'  => '0yy',
-            'tipo'     => 'int',
+        '2_mensagem' => [
+            'tamanho' => 60,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'numero_registro' => [
+            'tamanho' => 6,
+            'default' => '0yy',
+            'tipo' => 'int',
             'required' => true,
         ],
     ];
