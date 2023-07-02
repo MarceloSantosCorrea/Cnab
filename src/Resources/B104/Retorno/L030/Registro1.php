@@ -1,6 +1,6 @@
 <?php
 
-namespace Cnab\Resources\B104\Retorno\Cnab240SIGCB;
+namespace Cnab\Resources\B104\Retorno\L030;
 
 use Cnab\AbstractRetorno;
 use Cnab\Resources\Generico\Remessa\Cnab240\Generico1;

@@ -1,6 +1,7 @@
 {
   "name": "marcelo-correa/cnab",
   "description": "Gerar remessa e processar retorno nos layouts cnab240 e 400",
+  "license": "MIT",
   "authors": [
     {
       "name": "Marcelo Correa",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cnab\Resources\b341\Remessa\Cnab400;
+namespace Cnab\Resources\B341\Remessa\Cnab400;
 
 use Cnab\Resources\Generico\Remessa\Cnab400\Generico9;
 
