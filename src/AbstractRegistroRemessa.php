@@ -52,6 +52,8 @@ abstract class AbstractRegistroRemessa
 
     public function ___get($prop)
     {
+//        if ($prop == 'conta_dv') {
+//        }
         if (isset($this->meta[$prop])) {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];

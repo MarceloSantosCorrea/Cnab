@@ -62,7 +62,6 @@ $lote->inserirDetalhe([
     'taxa_juros' => 30.00, // taxa de juros em percentual
 ]);
 
-
-$file = fopen('teste.rem', "w");
+$file = fopen('CAIXA_CNAB240_SIGCB.REM', "w");
 fwrite($file, $arquivo->getText());
 fclose($file);

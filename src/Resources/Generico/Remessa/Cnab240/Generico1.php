@@ -129,4 +129,9 @@ class Generico1 extends AbstractRegistroRemessa
     {
         $this->data['data_gravacao'] = date('Y-m-d');
     }
+
+    protected function set_conta_dv($value)
+    {
+        $this->data['conta_dv'] = AbstractRemessa::$entryData['conta_dv'];
+    }
 }
