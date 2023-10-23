@@ -61,7 +61,6 @@ class Generico1 extends AbstractRegistroRemessa
                 if ($child->codigo_carteira == 3) {
                     $dataReg5['qtd_titulos_caucionada']++;
                     $dataReg5['vlr_titulos_caucionada'] += $child->getUnformated('valor');
-
                 }
                 if ($child->codigo_carteira == 4) {
                     $dataReg5['qtd_titulos_descontada']++;
@@ -128,6 +127,11 @@ class Generico1 extends AbstractRegistroRemessa
     protected function set_data_gravacao($value)
     {
         $this->data['data_gravacao'] = date('Y-m-d');
+    }
+
+    protected function set_conta($value)
+    {
+        $this->data['conta'] = AbstractRemessa::$entryData['conta'];
     }
 
     protected function set_conta_dv($value)

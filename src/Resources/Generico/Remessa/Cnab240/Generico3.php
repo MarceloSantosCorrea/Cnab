@@ -67,6 +67,16 @@ class Generico3 extends AbstractRegistroRemessa
         $this->data['agencia_dv'] = AbstractRemessa::$entryData['agencia_dv'];
     }
 
+    protected function set_conta($value)
+    {
+        $this->data['conta'] = AbstractRemessa::$entryData['conta'];
+    }
+
+    protected function set_conta_dv($value)
+    {
+        $this->data['conta_dv'] = AbstractRemessa::$entryData['conta_dv'];
+    }
+
     /**
      * @param $value
      */

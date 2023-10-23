@@ -69,14 +69,14 @@ class Registro0 extends Generico0
         ],
         'conta_dv' => [
             'tamanho' => 1,
-            'default' => ' ',
-            'tipo' => 'alfa',
+            'default' => '',
+            'tipo' => 'int',
             'required' => true,
         ],
         'conta_dac' => [
             'tamanho' => 1,
-            'default' => '0',
-            'tipo' => 'int',
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
         'nome_empresa' => [
@@ -105,13 +105,13 @@ class Registro0 extends Generico0
         ],
         'data_geracao' => [
             'tamanho' => 8,
-            'default' => '',// nao informar a data na instanciação - gerada dinamicamente
+            'default' => '', // nao informar a data na instanciação - gerada dinamicamente
             'tipo' => 'date',
             'required' => true,
         ],
         'hora_geracao' => [
             'tamanho' => 6,
-            'default' => '',// nao informar a data na instanciação - gerada dinamicamente
+            'default' => '', // nao informar a data na instanciação - gerada dinamicamente
             'tipo' => 'int',
             'required' => true,
         ],

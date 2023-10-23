@@ -60,7 +60,7 @@ class Registro3P extends Generico3
         'agencia_dv' => [
             'tamanho' => 1,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true,
         ],
         'conta' => [
@@ -105,7 +105,13 @@ class Registro3P extends Generico3
             'tipo' => 'int',
             'required' => true,
         ],
-        'carteira' => [
+        'filler2P' => [
+            'tamanho' => 5,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'carteira' => [ // Posição 58-58 Num
             'tamanho' => 1,
             'default' => '1',
             'tipo' => 'int',
@@ -274,7 +280,7 @@ class Registro3P extends Generico3
         ],
         'num_contrato' => [
             'tamanho' => 10,
-            'default' => '0000000000',
+            'default' => '0',
             'tipo' => 'int',
             'required' => true,
         ],

@@ -32,6 +32,33 @@ abstract class AbstractRegistroRemessa
         if (method_exists($this, 'get_' . $prop)) {
             return call_user_func([$this, 'get_' . $prop]);
         } else {
+            // if (
+            //     get_class($this) == "Cnab\Resources\B756\Remessa\Cnab240\Registro3P" &&
+            //     $prop == 'carteira'
+            // ) {
+            //     $row = $this->___get('codigo_banco') .
+            //         $this->___get('codigo_lote') .
+            //         $this->___get('tipo_registro') .
+            //         $this->___get('numero_registro') .
+            //         $this->___get('seguimento') .
+            //         $this->___get('filler1') .
+            //         $this->___get('codigo_movimento') .
+            //         $this->___get('agencia') .
+            //         $this->___get('agencia_dv') .
+            //         $this->___get('conta') .
+            //         $this->___get('conta_dv') .
+            //         $this->___get('conta_dac') .
+            //         $this->___get('nosso_numero') .
+            //         $this->___get('parcela') .
+            //         $this->___get('modalidade') .
+            //         $this->___get('tipo_formulario') .
+            //         $this->___get('filler2P');
+            //     dd(
+            //         $row,
+            //         strlen($row),
+            //     );
+            // }
+
             return $this->___get($prop);
         }
     }
@@ -42,8 +69,9 @@ abstract class AbstractRegistroRemessa
             call_user_func([$this, 'set_' . $prop], $value);
         } else {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
-            if (($value == "" || $value === NULL) && $metaData[$prop]['default'] != "") {
-                $this->data[$prop] = $metaData[$prop]['default'];
+
+            if (($value == "" || $value === NULL) && $metaData['default'] != "") {
+                $this->data[$prop] = $metaData['default'];
             } else {
                 $this->data[$prop] = $value;
             }
@@ -52,14 +80,15 @@ abstract class AbstractRegistroRemessa
 
     public function ___get($prop)
     {
-//        if ($prop == 'conta_dv') {
-//        }
         if (isset($this->meta[$prop])) {
             $metaData = (isset($this->meta[$prop])) ? $this->meta[$prop] : null;
+
             $this->data[$prop] = !isset($this->data[$prop]) || $this->data[$prop] == '' ? $metaData['default'] : $this->data[$prop];
+
             if ($metaData['required'] == true && ($this->data[$prop] == '' || !isset($this->data[$prop]))) {
                 throw new Exception('Campo faltante ou com valor nulo:' . $prop);
             }
+
             switch ($metaData['tipo']) {
                 case 'decimal':
                     $retorno = ($this->data[$prop]) ? number_format($this->data[$prop], $metaData['precision'], '', '') : '';
@@ -125,7 +154,8 @@ abstract class AbstractRegistroRemessa
 
     private function isUtf8($string)
     {
-        return preg_match('%^(?:
+        return preg_match(
+            '%^(?:
             [\x09\x0A\x0D\x20-\x7E]
             | [\xC2-\xDF][\x80-\xBF]
             | \xE0[\xA0-\xBF][\x80-\xBF]
