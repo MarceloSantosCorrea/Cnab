@@ -23,7 +23,7 @@ $lote->inserirDetalhe([
     'nosso_numero' => '00000010',
     'seu_numero' => '1',
     'data_vencimento' => '2023-11-30',
-    'data_emissao' => '2023-11-30',
+    'data_emissao' => date('Y-m-d'), // <-- não pode ser superior a data de vencimento
     'valor' => '30.00',
     'tipo_inscricao' => 1,
     'numero_inscricao' => '817.714.010-87',

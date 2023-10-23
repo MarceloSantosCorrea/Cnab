@@ -75,8 +75,8 @@ class Registro0 extends Generico0
         ],
         'conta_dac' => [
             'tamanho' => 1,
-            'default' => ' ',
-            'tipo' => 'alfa',
+            'default' => '0',
+            'tipo' => 'int',
             'required' => true,
         ],
         'nome_empresa' => [
