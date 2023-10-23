@@ -22,8 +22,8 @@ $lote = $arquivo->addLote(['tipo_servico' => 1]);
 $lote->inserirDetalhe([
     'nosso_numero' => '00000010',
     'seu_numero' => '1',
-    'data_vencimento' => '30112023',
-    'data_emissao' => '30112023',
+    'data_vencimento' => '2023-11-30',
+    'data_emissao' => '2023-11-30',
     'valor' => '30.00',
     'tipo_inscricao' => 1,
     'numero_inscricao' => '817.714.010-87',
@@ -33,6 +33,9 @@ $lote->inserirDetalhe([
     'cep_pagador' => '97037172',
     'cidade_pagador' => 'Santa Maria',
     'uf_pagador' => 'RS',
+    'codigo_multa' => 2,
+    'data_multa' => '2023-12-05',
+    'vlr_multa' => 2.00,
 ]);
 
 // $arquivo->getText();

@@ -19,6 +19,7 @@
     }
   },
   "require-dev": {
+    "php": ">=8.2",
     "symfony/var-dumper": "^6.3",
     "pestphp/pest": "^2.8"
   },
