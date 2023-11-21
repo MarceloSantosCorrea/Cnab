@@ -1,17 +1,14 @@
 <?php
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Cnab\Retorno;
 
-
-//$fileContent = file_get_contents('src/samples/retorno_cnab400_itau.ret');
-$fileContent = file_get_contents('src/samples/phpyoiOl5_5a9011f5495133_12170818.ret');
-//$fileContent = file_get_contents('src/samples/retorno-000021.ret');
+$fileContent = file_get_contents(__DIR__ . '/4342_966401_2433940_231121_C240_20.RET');
 
 try {
     $arquivo = new Retorno($fileContent);
+    dd($arquivo->getRegistros());
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-dd($arquivo->getRegistros());

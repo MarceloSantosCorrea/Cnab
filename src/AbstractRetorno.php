@@ -18,8 +18,9 @@ abstract class AbstractRetorno
         $conteudo = str_replace("\r\n", "\n", $conteudo);
 
         $lines = explode("\n", $conteudo);
-        if (count($lines) < 2)
+        if (count($lines) < 2){
             throw new Exception("Invalid file.");
+        }
 
         $length = strlen($lines[0]);
 
