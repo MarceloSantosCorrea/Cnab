@@ -35,7 +35,7 @@ class Registro3T extends AbstractRegistroRetorno
         'nome_pagador' => ['tamanho' => 40, 'default' => '', 'tipo' => 'alfa', 'required' => true],
         'numero_contrato' => ['tamanho' => 10, 'default' => '', 'tipo' => 'int', 'required' => true],
         'vlr_tarifas' => ['tamanho' => 13, 'default' => '0', 'tipo' => 'decimal', 'precision' => 2, 'required' => true],
-        'motivo_ocorrencia' => ['tamanho' => 10, 'default' => ' ', 'tipo' => 'alfa', 'required' => true],
+        'codigo_ocorrencia' => ['tamanho' => 10, 'default' => ' ', 'tipo' => 'alfa', 'required' => true],
         'filler8' => ['tamanho' => 17, 'default' => ' ', 'tipo' => 'alfa', 'required' => true],
     ];
 }
