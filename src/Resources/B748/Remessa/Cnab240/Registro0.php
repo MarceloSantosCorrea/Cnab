@@ -57,7 +57,7 @@ class Registro0 extends Generico0
         ],
         'agencia_dv' => [
             'tamanho' => 1,
-            'default' => '',
+            'default' => ' ',
             'tipo' => 'alfa',
             'required' => true,
         ],
@@ -70,7 +70,7 @@ class Registro0 extends Generico0
         'conta_dv' => [
             'tamanho' => 1,
             'default' => '',
-            'tipo' => 'alfa',
+            'tipo' => 'int',
             'required' => true,
         ],
         'conta_dac' => [
@@ -123,13 +123,13 @@ class Registro0 extends Generico0
         ],
         'versao_layout' => [
             'tamanho' => 3,
-            'default' => '082',
+            'default' => '081',
             'tipo' => 'int',
             'required' => true,
         ],
         'densidade_gravacao' => [
             'tamanho' => 5,
-            'default' => '0',
+            'default' => '01600',
             'tipo' => 'int',
             'required' => true,
         ],

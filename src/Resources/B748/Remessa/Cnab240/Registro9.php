@@ -43,7 +43,7 @@ class Registro9 extends Generico9
             'tipo' => 'int',
             'required' => true,
         ],
-        'qtd_contas_conc' => [
+        'filler2' => [
             'tamanho' => 6,
             'default' => '0',
             'tipo' => 'int',

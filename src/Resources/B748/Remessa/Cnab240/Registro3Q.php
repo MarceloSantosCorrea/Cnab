@@ -2,9 +2,9 @@
 
 namespace Cnab\Resources\B748\Remessa\Cnab240;
 
-use Cnab\Resources\Generico\Remessa\Cnab240\Generico1;
+use Cnab\Resources\Generico\Remessa\Cnab240\Generico3;
 
-class Registro1 extends Generico1
+class Registro3Q extends Generico3
 {
     protected $meta = [
         'codigo_banco' => [
@@ -21,40 +21,35 @@ class Registro1 extends Generico1
         ],
         'tipo_registro' => [
             'tamanho' => 1,
-            'default' => 1,
+            'default' => '3',
             'tipo' => 'int',
             'required' => true,
         ],
-        'operacao' => [
+        'numero_registro' => [
+            'tamanho' => 5,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true,
+        ],
+        'seguimento' => [
             'tamanho' => 1,
-            'default' => 'R',
+            'default' => 'Q',
             'tipo' => 'alfa',
-            'required' => true,
-        ],
-        'tipo_servico' => [
-            'tamanho' => 2,
-            'default' => '01',
-            'tipo' => 'int',
             'required' => true,
         ],
         'filler1' => [
-            'tamanho' => 2,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true,
-        ],
-        'versa_layout' => [
-            'tamanho' => 3,
-            'default' => '040',
-            'tipo' => 'int',
-            'required' => true,
-        ],
-        'filler2' => [
             'tamanho' => 1,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true,
         ],
+        'codigo_movimento' => [
+            'tamanho' => 2,
+            'default' => '01', // entrada de titulo
+            'tipo' => 'int',
+            'required' => true,
+        ],
+        // - ------------------ até aqui é igual para todo registro tipo 3
         'tipo_inscricao' => [
             'tamanho' => 1,
             'default' => '',
@@ -67,74 +62,68 @@ class Registro1 extends Generico1
             'tipo' => 'int',
             'required' => true,
         ],
-        'filler22' => [
-            'tamanho' => 20,
-            'default' => ' ',
+        'nome_pagador' => [
+            'tamanho' => 40,
+            'default' => '',
             'tipo' => 'alfa',
             'required' => true,
         ],
-        'agencia' => [
-            'tamanho' => 5,
+        'endereco_pagador' => [
+            'tamanho' => 40,
+            'default' => '',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'bairro_pagador' => [
+            'tamanho' => 15,
+            'default' => '',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'cep_pagador' => [
+            'tamanho' => 8,
             'default' => '',
             'tipo' => 'int',
             'required' => true,
         ],
-        'agencia_dv' => [
+        'cidade_pagador' => [
+            'tamanho' => 15,
+            'default' => '',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'uf_pagador' => [
+            'tamanho' => 2,
+            'default' => '',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'tipo_incricao_avalista' => [
             'tamanho' => 1,
-            'default' => '',
-            'tipo' => 'int',
-            'required' => true,
-        ],
-        'conta' => [
-            'tamanho' => 12,
             'default' => '0',
             'tipo' => 'int',
             'required' => true,
         ],
-        'conta_dv' => [
-            'tamanho' => 1,
-            'default' => '',
-            'tipo' => 'int',
-            'required' => true,
-        ],
-        'conta_dac' => [
-            'tamanho' => 1,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true,
-        ],
-        'nome_empresa' => [
-            'tamanho' => 30,
-            'default' => '',
-            'tipo' => 'alfa',
-            'required' => true,
-        ],
-        'filler26' => [
-            'tamanho' => 80,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true,
-        ],
-        'numero_remessa' => [
-            'tamanho' => 8,
-            'default' => '',
-            'tipo' => 'int',
-            'required' => true,
-        ],
-        'data_gravacao' => [
-            'tamanho' => 8,
-            'default' => '', // nao informar a data na instanciação - gerada dinamicamente
-            'tipo' => 'date',
-            'required' => true,
-        ],
-        'data_credito' => [
-            'tamanho' => 8,
+        'numero_incricao_avalista' => [
+            'tamanho' => 15,
             'default' => '0',
             'tipo' => 'int',
             'required' => true,
         ],
-        'filler4' => [
-            'tamanho' => 33,
+        'nome_avalista' => [
+            'tamanho' => 40,
+            'default' => ' ',
+            'tipo' => 'alfa',
+            'required' => true,
+        ],
+        'filler14' => [
+            'tamanho' => 3,
+            'default' => '0',
+            'tipo' => 'int',
+            'required' => true,
+        ],
+        'filler15' => [
+            'tamanho' => 28,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true,
