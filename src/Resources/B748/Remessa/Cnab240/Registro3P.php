@@ -150,7 +150,7 @@ class Registro3P extends Generico3
         ],
         'especie_titulo' => [
             'tamanho' => 2,
-            'default' => '02',
+            'default' => '2',
             'tipo' => 'alfa',
             'required' => true,
         ],

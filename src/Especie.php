@@ -9,6 +9,7 @@ class Especie
     private array $caixa = [];
     private array $bb = [];
     private array $siccob = [];
+    private array $sicredi = [];
     private array $banco;
 
     public function __construct($banco = null)
@@ -87,10 +88,27 @@ class Especie
         $this->siccob[22] = ['abr' => "ME", 'txt' => 'Parcela de Consórcio'];
         $this->siccob[99] = ['abr' => "DIV", 'txt' => 'Outros'];
 
+        $this->sicredi[1] = ['abr' => "DM", 'txt' => 'Duplicata Mercantil'];
+        $this->sicredi[2] = ['abr' => "NP", 'txt' => 'Nota Promissória'];
+        $this->sicredi[3] = ['abr' => "NS", 'txt' => 'Nota de Seguro'];
+        $this->sicredi[4] = ['abr' => "ME", 'txt' => 'Mensalidade escolar'];
+        $this->sicredi[5] = ['abr' => "RC", 'txt' => 'Recibo'];
+        $this->sicredi[6] = ['abr' => "CT", 'txt' => 'Contrato'];
+        $this->sicredi[7] = ['abr' => "CS", 'txt' => 'Cosseguros'];
+        $this->sicredi[8] = ['abr' => "DS", 'txt' => 'Duplicata de Serviço'];
+        $this->sicredi[9] = ['abr' => "LC", 'txt' => 'Letra de Câmbio'];
+        $this->sicredi[13] = ['abr' => "ND", 'txt' => 'Nota de Débito'];
+        $this->sicredi[15] = ['abr' => "DV", 'txt' => 'Documento de divida'];
+        $this->sicredi[16] = ['abr' => "EC", 'txt' => 'Encargos condominiais'];
+        $this->sicredi[17] = ['abr' => "CPS", 'txt' => 'Conta de prestação de serviço'];
+        $this->sicredi[18] = ['abr' => "DBP", 'txt' => 'Boleto de Proposta'];
+        $this->sicredi[99] = ['abr' => "DIV", 'txt' => 'Diversos'];
+
         $this->res['104'] = $this->caixa;
         $this->res['341'] = $this->itau;
         $this->res['001'] = $this->bb;
         $this->res['756'] = $this->siccob;
+        $this->res['748'] = $this->sicredi;
 
         $this->banco = $this->res[$banco];
     }

@@ -3,7 +3,8 @@
 use Cnab\Retorno;
 
 test('deve processar retorno caixa cnab 240 sigcb 1 registro', function () {
-    $fileContent = file_get_contents(__DIR__ . '/../../src/samples/RETORNOCEF24062023487.RET');
+    $fileContent = file_get_contents(__DIR__ . '/../../../../../docs/RETORNOCEF24062023487.RET');
+
     $arquivo = new Retorno($fileContent);
 
     $registros = $arquivo->getRegistros();

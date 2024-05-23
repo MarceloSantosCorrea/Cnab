@@ -81,8 +81,8 @@ class Registro1 extends Generico1
         ],
         'agencia_dv' => [
             'tamanho' => 1,
-            'default' => '',
-            'tipo' => 'int',
+            'default' => ' ',
+            'tipo' => 'alfa',
             'required' => true,
         ],
         'conta' => [
@@ -123,7 +123,7 @@ class Registro1 extends Generico1
         ],
         'data_gravacao' => [
             'tamanho' => 8,
-            'default' => '', // nao informar a data na instanciação - gerada dinamicamente
+            'default' => '',
             'tipo' => 'date',
             'required' => true,
         ],

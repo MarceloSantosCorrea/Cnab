@@ -3,7 +3,7 @@
 use Cnab\Retorno;
 
 test('deve processar retornos PRE CRI-PRODUCAO', function () {
-    $fileContent = file_get_contents(__DIR__ . '/../../src/samples/RETORNOCEF29062023434.RET');
+    $fileContent = file_get_contents(__DIR__ . '/../../../../../docs/RETORNOCEF29062023434.RET');
 
     $arquivo = new Retorno($fileContent);
 
