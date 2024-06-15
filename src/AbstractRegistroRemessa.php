@@ -32,33 +32,6 @@ abstract class AbstractRegistroRemessa
         if (method_exists($this, 'get_' . $prop)) {
             return call_user_func([$this, 'get_' . $prop]);
         } else {
-            // if (
-            //     get_class($this) == "Cnab\Resources\B756\Remessa\Cnab240\Registro3P" &&
-            //     $prop == 'carteira'
-            // ) {
-            //     $row = $this->___get('codigo_banco') .
-            //         $this->___get('codigo_lote') .
-            //         $this->___get('tipo_registro') .
-            //         $this->___get('numero_registro') .
-            //         $this->___get('seguimento') .
-            //         $this->___get('filler1') .
-            //         $this->___get('codigo_movimento') .
-            //         $this->___get('agencia') .
-            //         $this->___get('agencia_dv') .
-            //         $this->___get('conta') .
-            //         $this->___get('conta_dv') .
-            //         $this->___get('conta_dac') .
-            //         $this->___get('nosso_numero') .
-            //         $this->___get('parcela') .
-            //         $this->___get('modalidade') .
-            //         $this->___get('tipo_formulario') .
-            //         $this->___get('filler2P');
-            //     dd(
-            //         $row,
-            //         strlen($row),
-            //     );
-            // }
-
             return $this->___get($prop);
         }
     }
@@ -120,7 +93,7 @@ abstract class AbstractRegistroRemessa
         }
     }
 
-    private function prepareText($text, $remove = null)
+    private function prepareText($text, $remove = null): array|string
     {
         $result = strtoupper($this->removeAccents(trim(html_entity_decode($text))));
         if ($remove)
@@ -129,7 +102,7 @@ abstract class AbstractRegistroRemessa
         return $result;
     }
 
-    private function removeAccents($string)
+    private function removeAccents($string): array|string|null
     {
         return preg_replace(
             [

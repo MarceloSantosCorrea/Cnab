@@ -150,8 +150,8 @@ class Registro3P extends Generico3
         ],
         'especie_titulo' => [
             'tamanho' => 2,
-            'default' => '2',
-            'tipo' => 'alfa',
+            'default' => 3,
+            'tipo' => 'int',
             'required' => true,
         ],
         'aceite' => [
@@ -267,6 +267,7 @@ class Registro3P extends Generico3
             'required' => true,
         ],
     ];
+
 
     public function __construct($data = null)
     {

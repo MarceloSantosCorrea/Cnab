@@ -88,21 +88,16 @@ class Especie
         $this->siccob[22] = ['abr' => "ME", 'txt' => 'Parcela de Consórcio'];
         $this->siccob[99] = ['abr' => "DIV", 'txt' => 'Outros'];
 
-        $this->sicredi[1] = ['abr' => "DM", 'txt' => 'Duplicata Mercantil'];
-        $this->sicredi[2] = ['abr' => "NP", 'txt' => 'Nota Promissória'];
-        $this->sicredi[3] = ['abr' => "NS", 'txt' => 'Nota de Seguro'];
-        $this->sicredi[4] = ['abr' => "ME", 'txt' => 'Mensalidade escolar'];
-        $this->sicredi[5] = ['abr' => "RC", 'txt' => 'Recibo'];
-        $this->sicredi[6] = ['abr' => "CT", 'txt' => 'Contrato'];
-        $this->sicredi[7] = ['abr' => "CS", 'txt' => 'Cosseguros'];
-        $this->sicredi[8] = ['abr' => "DS", 'txt' => 'Duplicata de Serviço'];
-        $this->sicredi[9] = ['abr' => "LC", 'txt' => 'Letra de Câmbio'];
-        $this->sicredi[13] = ['abr' => "ND", 'txt' => 'Nota de Débito'];
-        $this->sicredi[15] = ['abr' => "DV", 'txt' => 'Documento de divida'];
-        $this->sicredi[16] = ['abr' => "EC", 'txt' => 'Encargos condominiais'];
-        $this->sicredi[17] = ['abr' => "CPS", 'txt' => 'Conta de prestação de serviço'];
-        $this->sicredi[18] = ['abr' => "DBP", 'txt' => 'Boleto de Proposta'];
-        $this->sicredi[99] = ['abr' => "DIV", 'txt' => 'Diversos'];
+        $this->sicredi[3] = ['abr' => "DMI", 'txt' => 'Duplicata Mercantil por Indicação'];
+        $this->sicredi[5] = ['abr' => "DSI", 'txt' => 'Duplicata de Serviço por Indicação'];
+        $this->sicredi[6] = ['abr' => "DR", 'txt' => 'Duplicata Rural'];
+        $this->sicredi[7] = ['abr' => "LC", 'txt' => 'Letra de Câmbio'];
+        $this->sicredi[12] = ['abr' => "NP", 'txt' => 'Nota Promissória'];
+        $this->sicredi[13] = ['abr' => "NPR", 'txt' => 'Nota Promissória Rural'];
+        $this->sicredi[16] = ['abr' => "NS", 'txt' => 'Nota de Seguros'];
+        $this->sicredi[17] = ['abr' => "RC", 'txt' => 'Recibo'];
+        $this->sicredi[19] = ['abr' => "ND", 'txt' => 'Nota de Débito'];
+        $this->sicredi[99] = ['abr' => "OS", 'txt' => 'Outros'];
 
         $this->res['104'] = $this->caixa;
         $this->res['341'] = $this->itau;

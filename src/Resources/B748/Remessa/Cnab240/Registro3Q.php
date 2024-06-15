@@ -76,9 +76,9 @@ class Registro3Q extends Generico3
         ],
         'bairro_pagador' => [
             'tamanho' => 15,
-            'default' => '',
+            'default' => ' ',
             'tipo' => 'alfa',
-            'required' => true,
+            'required' => false,
         ],
         'cep_pagador' => [
             'tamanho' => 8,
@@ -129,4 +129,16 @@ class Registro3Q extends Generico3
             'required' => true,
         ],
     ];
+
+    protected function set_bairro_pagador($value)
+    {
+        $this->data['bairro_pagador'] = null;
+    }
+
+    protected function set_cep_pagador($value)
+    {
+        $cep = $this->data['cep_pagador'];
+        $cep_array = explode('-', $cep);
+        $this->data['cep_pagador'] = $cep_array[0] . $cep_array[1];
+    }
 }
