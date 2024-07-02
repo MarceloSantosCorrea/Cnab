@@ -84,7 +84,7 @@ class Registro3P extends Generico3
         'nosso_numero' => [
             'tamanho' => 20,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true,
         ],
         'carteira' => [ // Posição 58-58 Num

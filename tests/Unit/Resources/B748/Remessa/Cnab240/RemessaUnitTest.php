@@ -30,6 +30,7 @@ test('calcular o dígito verificador do nosso número', function (
     $digit = $rest < 2 ? 0 : 11 - $rest;
     expect($digit)->toBe($digitoVerificador);
 })->with([
+//    ['0165', '02', '00623', '07', '2', 3, 1],
     ['0434', '25', '91107', '24', '2', 1, 5],
     ['0434', '25', '91107', '24', '2', 2, 3],
     ['0434', '25', '91107', '24', '2', 3, 1],
@@ -167,7 +168,7 @@ test('deve retornar um arquivo de remessa válido', function () {
     ->and(substr($rows[2], 23, 12))->toBe('000000091107') // conta
     ->and(substr($rows[2], 35, 1))->toBe('6') // conta_dv
     ->and(substr($rows[2], 36, 1))->toBe(' ') // conta_dac
-    ->and(substr($rows[2], 37, 20))->toBe('00000000000242000015') // nosso_numero
+    ->and(substr($rows[2], 37, 20))->toBe('242000015           ') // nosso_numero
     ->and(substr($rows[2], 57, 1))->toBe('1') // carteira
     ->and(substr($rows[2], 58, 1))->toBe('1') // cadastramento
     ->and(substr($rows[2], 59, 1))->toBe('1') // documento
