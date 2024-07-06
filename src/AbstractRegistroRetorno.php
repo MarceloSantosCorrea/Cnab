@@ -55,8 +55,8 @@ abstract class AbstractRegistroRetorno
                     $this->data[$prop] = $retorno;
                     break;
                 case 'date':
-                    if ($value == '00000000')
-                        $this->data[$prop] = '00000000';
+                    if ($value == '00000000' || $value == '        ')
+                        $this->data[$prop] = $value;
                     else
                         if ($metaData['tamanho'] == 6) {
                             $data = DateTime::createFromFormat('dmy', sprintf('%06d', $value));
@@ -87,11 +87,11 @@ abstract class AbstractRegistroRetorno
                 case 'int':
                     return (isset($this->data[$prop])) ? abs((int)$this->data[$prop]) : '';
                 case 'alfa':
-                    return ($this->data[$prop]) ? $this->prepareText($this->data[$prop]) : '';
+                    return $this->data[$prop] ?: '';
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 6:
-                    return ($this->data[$prop]) ? date("d/m/y", strtotime($this->data[$prop])) : '';
+                    return ($this->data[$prop]) ? date('d/m/y', strtotime($this->data[$prop])) : '';
                 case $metaData['tipo'] == 'date' && $metaData['tamanho'] == 8:
-                    return ($this->data[$prop]) ? date("d/m/Y", strtotime($this->data[$prop])) : '';
+                    return ($this->data[$prop]) ? date('d/m/Y', strtotime($this->data[$prop])) : '';
                 default:
                     return null;
             }
