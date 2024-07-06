@@ -40,7 +40,7 @@ class Registro0 extends AbstractRegistroRetorno
         'numero_inscricao' => [
             'tamanho' => 14,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true
         ],
         'codigo_convenio' => [
@@ -64,7 +64,7 @@ class Registro0 extends AbstractRegistroRetorno
         'conta' => [
             'tamanho' => 12,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true
         ],
         'conta_dv' => [
@@ -87,7 +87,7 @@ class Registro0 extends AbstractRegistroRetorno
         ],
         'nome_banco' => [
             'tamanho' => 30,
-            'default' => 'SICOOB',
+            'default' => 'SICREDI',
             'tipo' => 'alfa',
             'required' => true
         ],
@@ -123,14 +123,14 @@ class Registro0 extends AbstractRegistroRetorno
         ],
         'versao_layout' => [
             'tamanho' => 3,
-            'default' => '',
+            'default' => '081',
             'tipo' => 'alfa',
             'required' => true
         ],
         'densidade_gravacao' => [
             'tamanho' => 5,
-            'default' => '0',
-            'tipo' => 'int',
+            'default' => '01600',
+            'tipo' => 'alfa',
             'required' => true
         ],
         'filler4' => [

@@ -45,7 +45,7 @@ class Registro1 extends AbstractRegistroRetorno
         ],
         'versao_layout' => [
             'tamanho' => 3,
-            'default' => '044',
+            'default' => '040',
             'tipo' => 'alfa',
             'required' => true
         ],
@@ -76,7 +76,7 @@ class Registro1 extends AbstractRegistroRetorno
         'agencia' => [
             'tamanho' => 5,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true
         ],
         'agencia_dv' => [
@@ -88,7 +88,7 @@ class Registro1 extends AbstractRegistroRetorno
         'conta' => [
             'tamanho' => 12,
             'default' => '',
-            'tipo' => 'int',
+            'tipo' => 'alfa',
             'required' => true
         ],
         'conta_dv' => [
@@ -109,14 +109,8 @@ class Registro1 extends AbstractRegistroRetorno
             'tipo' => 'alfa',
             'required' => true
         ],
-        'mensagem_fixa1' => [
-            'tamanho' => 40,
-            'default' => ' ',
-            'tipo' => 'alfa',
-            'required' => true
-        ],
-        'mensagem_fixa2' => [
-            'tamanho' => 40,
+        'filler3' => [
+            'tamanho' => 80,
             'default' => ' ',
             'tipo' => 'alfa',
             'required' => true
